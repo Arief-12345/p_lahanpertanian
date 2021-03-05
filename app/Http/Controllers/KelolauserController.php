@@ -13,7 +13,7 @@ class KelolauserController extends Controller
      */
     public function index()
     {
-        //
+        return view('kelola_user.index');
     }
 
     /**
