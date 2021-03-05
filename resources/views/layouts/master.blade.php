@@ -58,8 +58,8 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="/kelola_user"><em class="fa fa-user">&nbsp;</em> Kelola User</a></li>
+			<li><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li class=" {{ request()->is('/kelola_user') ? 'active' : '' }}"><a href="/kelola_user"><em class="fa fa-user">&nbsp;</em> Kelola User</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Kelola Data Gapoktani</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Kelola Data Produksi</a></li>
 			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
