@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('aktif_kelola_user', 'active')
 @section('content')
     <div class="row">
         <div class="col-md-12">

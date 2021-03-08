@@ -59,7 +59,7 @@
 		</form>
 		<ul class="nav menu">
 			<li><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li class=" {{ request()->is('/kelola_user') ? 'active' : '' }}"><a href="/kelola_user"><em class="fa fa-user">&nbsp;</em> Kelola User</a></li>
+			<li class="@yield('aktif_kelola_user')"><a href="{{ url('/kelola_user') }}"><em class="fa fa-user">&nbsp;</em> Kelola User</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Kelola Data Gapoktani</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Kelola Data Produksi</a></li>
 			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
@@ -148,18 +148,6 @@
                 $('#datatable').DataTable();
             } );
         </script>
-	{{-- <script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script> --}}
-
 <script>
 	@if(Session::has('sukses'))
 	toastr.success("{{Session::get('sukses')}}", "Selamat")
