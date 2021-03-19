@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/kelola_user', 'KelolauserController@index');
+Route::post('/kelola_user/input', 'KelolauserController@store');
+Route::post('/kelola_user/update', 'KelolauserController@update');
+Route::get('/kelola_user/hapus/{id}', 'KelolauserController@destroy');
+Route::get('/getdatapengguna/{id}', 'KelolauserController@getdatapengguna')->name('get.data.pengguna');
