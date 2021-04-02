@@ -29,5 +29,10 @@ Route::get('/getdatapengguna/{id}', 'KelolauserController@getdatapengguna')->nam
 Route::get('/kelola_gapoktani', 'GapoktaniController@index');
 Route::post('/kelola_gapoktani/input', 'GapoktaniController@store');
 Route::post('/kelola_gapoktani/update', 'GapoktaniController@update');
-Route::get('/getdatagapoktani/{id}', 'GapoktaniController@getdatagapoktani')->name('get.data.pengguna');
+Route::get('/getdatagapoktani/{id}', 'GapoktaniController@getdatagapoktani')->name('get.data.gapoktani');
 Route::get('/kelola_gapoktani/hapus/{id}', 'GapoktaniController@destroy');
+Route::get('/kelola_produksi', 'ProduksiController@index');
+Route::post('/kelola_produksi/input', 'ProduksiController@store');
+Route::post('/kelola_produksi/update', 'ProduksiController@update');
+Route::get('/getdataproduksi/{id}', 'ProduksiController@getdataproduksi')->name('get.data.produksi');
+Route::get('/kelola_produksi/hapus/{id}', 'ProduksiController@destroy');
