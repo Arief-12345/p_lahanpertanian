@@ -36,3 +36,8 @@ Route::post('/kelola_produksi/input', 'ProduksiController@store');
 Route::post('/kelola_produksi/update', 'ProduksiController@update');
 Route::get('/getdataproduksi/{id}', 'ProduksiController@getdataproduksi')->name('get.data.produksi');
 Route::get('/kelola_produksi/hapus/{id}', 'ProduksiController@destroy');
+Route::get('/kelola_data_potensi_lahan_pertanian', 'PotensilahanpertanianController@index');
+Route::post('/kelola_data_potensi_lahan_pertanian/input', 'PotensilahanpertanianController@store');
+Route::post('/kelola_data_potensi_lahan_pertanian/update', 'PotensilahanpertanianController@update');
+Route::get('/getdatapotensi/{id}', 'PotensilahanpertanianController@getdatapotensi')->name('get.data.potensi');
+Route::get('/kelola_data_potensi_lahan_pertanian/hapus/{id}', 'PotensilahanpertanianController@destroy');
