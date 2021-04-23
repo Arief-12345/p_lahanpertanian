@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Potensilahanpertanian;
+use App\Komoditihasilpanen;
 use Illuminate\Http\Request;
 
-class PotensilahanpertanianController extends Controller
+class KomoditihasilpanenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PotensilahanpertanianController extends Controller
      */
     public function index()
     {
-        $data = Potensilahanpertanian::all();
-        return view('potensi_lahan_pertanian.index', compact('data'));
+        $data = Komoditihasilpanen::all();
+        return view('komoditi_hasil_panen.index', compact('data'));
     }
 
     /**
@@ -37,12 +37,12 @@ class PotensilahanpertanianController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'luas_lahan' => 'required',
-            'status_lahan' => 'required',
-            'lokasi_lahan' => 'required',
+            'nama_komoditi' => 'required',
+            'lokasi_komoditi' => 'required',
+            'jmlh_komoditi' => 'required',
         ]);
 
-        $tambah = Potensilahanpertanian::create($request->all());
+        $tambah = Komoditihasilpanen::create($request->all());
         return redirect()->back()->with('sukses', 'Data Berhasil di Simpan !!!');
     }
 
@@ -78,12 +78,12 @@ class PotensilahanpertanianController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'luas_lahan' => 'required',
-            'status_lahan' => 'required',
-            'lokasi_lahan' => 'required',
+            'nama_komoditi' => 'required',
+            'lokasi_komoditi' => 'required',
+            'jmlh_komoditi' => 'required',
         ]);
 
-        $update = Potensilahanpertanian::find($request->id)->update($request->all());
+        $update = Komoditihasilpanen::find($request->id)->update($request->all());
         return redirect()->back()->with('sukses', 'Data Berhasil di Simpan !!!');
     }
 
@@ -95,14 +95,14 @@ class PotensilahanpertanianController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Potensilahanpertanian::find($id)->delete();
+        $delete = Komoditihasilpanen::find($id)->delete();
 
         return redirect()->back()->with('sukses', 'Data Berhasil di Hapus !!!');
     }
 
-    public function getdatapotensi($id)
+    public function getdatakomoditi($id)
     {
-        $data = Potensilahanpertanian::find($id);
+        $data = Komoditihasilpanen::find($id);
         return $data;
     }
 }
