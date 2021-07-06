@@ -2,16 +2,16 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Pengguna</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Pegawai</h5>
                 </button>
             </div>
             <div class="modal-body">
                 <form action="{{ url('/kelola_user/input') }}" method="POST">
                     {{ csrf_field() }}
-                    <input type="hidden" id="role" name="role" value="Petugas">
+
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}"
+                        <input type="text" class="form-control" name="username" value="{{ old('username') }}"
                             placeholder="Masukkan Username ...">
                         @error('username')
                             <div class="text-danger ml-3 mt-2">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Nama</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}"
+                        <input type="text" class="form-control" name="name" value="{{ old('name') }}"
                             placeholder="Masukkan Nama ...">
                         @error('name')
                             <div class="text-danger ml-3 mt-2">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">E-mail</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}"
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}"
                             placeholder="Masukkan E-mail ...">
                         @error('email')
                             <div class="text-danger ml-3 mt-2">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}"
+                        <input type="password" class="form-control" name="password" value="{{ old('password') }}"
                             placeholder="Masukkan Password ...">
                         @error('password')
                             <div class="text-danger ml-3 mt-2">

@@ -1,17 +1,17 @@
 @extends('layouts.master')
-@section('aktif_kelola_user', 'active')
+@section('aktif_kelola_kepalakantor', 'active')
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>Kelola Pegawai</h3>
+                    <h3>Kelola Kepala Kantor</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row" style="margin-left: 10px; margin-top: 10px">
                         <button class="btn btn-primary btn-md"  data-toggle="modal" data-target="#tambah"><i class="fa fa-user-plus"></i> Tambah</button> <br>
                     </div>
-                @include('kelola_user/modaltambah')
+                @include('kelola_kepalakantor/modaltambah')
                 <div class="row" style="margin-top: 20px; margin-left: 10px; margin-right: 10px">
                     <table class="table" id="datatable">
                         <thead>
@@ -38,7 +38,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                @include('kelola_user/modaledit')
+                @include('kelola_kepalakantor/modaledit')
                         </tbody>
                       </table>
                 </div>
@@ -70,7 +70,7 @@
                 .then((result) => {
                     console.log(result);
                     if (result.value) {
-                        window.location = "/kelola_user/hapus/" + Id + "";
+                        window.location = "/kelola_kepalakantor/hapus/" + Id + "";
                     }
                 });
         });

@@ -2,14 +2,24 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Pegawai</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Kepala Kantor</h5>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ url('/kelola_user/update') }}" method="POST">
+                <form action="{{ url('/kelola_kepalakantor/update') }}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" id="id_user" name="id_user" value="">
-                    <input type="hidden" class="form-control" id="url_getdata" name="url_getdata" value="{{url('getdatapengguna/')}}" readonly>
+                    <input type="hidden" class="form-control" id="url_getdata" name="url_getdata" value="{{url('getdatakepalakantor/')}}" readonly>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">NIP</label>
+                        <input type="text" class="form-control" id="nnip" name="nip" value="{{ old('nip') }}"
+                            placeholder="Masukkan NIP ...">
+                        @error('nip')
+                            <div class="text-danger ml-3 mt-2">
+                                {{ $message }}`
+                            </div>
+                        @enderror
+                    </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Username</label>
                         <input type="text" class="form-control" id="uusername" name="username" value="{{ old('username') }}"
@@ -75,6 +85,7 @@
                     console.log(response);
     
                     $('#id_user').val(response.user.id);
+                    $('#nnip').val(response.nip);
                     $('#nname').val(response.name);
                     $('#uusername').val(response.username);
                     $('#eemail').val(response.user.email);

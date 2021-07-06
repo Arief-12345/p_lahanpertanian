@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kepalakantor extends Model
 {
-    protected $table = 'pengguna';
-    protected $fillable = ['user_id', 'name', 'username', 'password'];
+    protected $table = 'kepalakantor';
+    protected $fillable = ['user_id', 'nip', 'email', 'name', 'username', 'password'];
     protected $guarded = [];
 
     public function user()

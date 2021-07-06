@@ -28,6 +28,12 @@ Route::post('/kelola_user/update', 'KelolauserController@update');
 Route::get('/kelola_user/hapus/{id}', 'KelolauserController@destroy');
 Route::get('/getdatapengguna/{id}', 'KelolauserController@getdatapengguna')->name('get.data.pengguna');
 
+Route::get('/kelola_kepalakantor', 'KelolakepalakantorController@index');
+Route::post('/kelola_kepalakantor/input', 'KelolakepalakantorController@store');
+Route::post('/kelola_kepalakantor/update', 'KelolakepalakantorController@update');
+Route::get('/kelola_kepalakantor/hapus/{id}', 'KelolakepalakantorController@destroy');
+Route::get('/getdatakepalakantor/{id}', 'KelolakepalakantorController@getdatakepalakantor')->name('get.data.pengguna');
+
 Route::get('/kelola_gapoktani', 'GapoktaniController@index');
 Route::post('/kelola_gapoktani/input', 'GapoktaniController@store');
 Route::post('/kelola_gapoktani/update', 'GapoktaniController@update');
