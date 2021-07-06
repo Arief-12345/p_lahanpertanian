@@ -64,7 +64,9 @@
         <ul class="nav menu">
             <li><a href="{{ url('/home') }}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
             <li class="@yield('aktif_kelola_user')"><a href="{{ url('/kelola_user') }}"><em
-                        class="fa fa-user">&nbsp;</em> Kelola User</a></li>
+                        class="fa fa-user">&nbsp;</em> Kelola Pegawai</a></li>
+            <li class="@yield('aktif_kelola_user')"><a href="{{ url('/kelola_user') }}"><em
+                        class="fa fa-user">&nbsp;</em> Kelola Kepala Kantor</a></li>
             <li class="@yield('aktif_kelola_data_gapoktani')"><a href="{{ url('/kelola_gapoktani') }}"><em
                         class="fa fa-bar-chart">&nbsp;</em> Kelola Data Gapoktani</a></li>
             <li class="@yield('aktif_kelola_data_produksi')"><a href="{{ url('/kelola_produksi') }}"><em
