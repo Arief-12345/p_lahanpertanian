@@ -7,6 +7,7 @@
 	<link href={{asset("assets/css/bootstrap.min.css")}} rel="stylesheet">
 	<link href={{asset("assets/css/datepicker3.css")}} rel="stylesheet">
 	<link href={{asset("assets/css/styles.css")}} rel="stylesheet">
+	<link href={{ asset('assets/images/sanggau.png') }} rel="shortcut icon">
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
