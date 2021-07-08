@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKomoditiHasilPanenTable extends Migration
+class CreateProduksiPanenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateKomoditiHasilPanenTable extends Migration
      */
     public function up()
     {
-        Schema::create('komoditi_hasil_panen', function (Blueprint $table) {
+        Schema::create('produksi_panen', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_komoditi');
-            $table->string('lokasi_komoditi');
-            $table->integer('jmlh_komoditi');
+            $table->foreignId('kecamatan_id');
+            $table->foreignId('komoditi_id');
+            $table->date('tahun');
+            $table->integer('jmlh_produksi');
+            $table->integer('luas_penggunaan_lahan');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateKomoditiHasilPanenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('komoditi_hasil_panen');
+        Schema::dropIfExists('produksi_panen');
     }
 }
