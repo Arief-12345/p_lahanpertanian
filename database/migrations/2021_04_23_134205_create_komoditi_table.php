@@ -15,7 +15,7 @@ class CreateKomoditiTable extends Migration
     {
         Schema::create('komoditi', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_komoditi');
+            $table->string('nama_komoditi', 30);
             $table->timestamps();
         });
     }

@@ -16,11 +16,11 @@ class CreateKepalakantorTable extends Migration
         Schema::create('kepalakantor', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('nip');
-            $table->string('email');
-            $table->string('name');
-            $table->string('username');
-            $table->string('password');
+            $table->string('nip', 18);
+            $table->string('email', 150);
+            $table->string('name', 30);
+            $table->string('username', 130);
+            $table->string('password', 150);
             $table->timestamps();
         });
     }

@@ -16,8 +16,8 @@ class CreateGapoktaniTable extends Migration
         Schema::create('gapoktani', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kecamatan_id');
-            $table->string('nama_gapoktani');
-            $table->string('ketua_gapoktani');
+            $table->string('nama_gapoktani', 30);
+            $table->string('ketua_gapoktani', 30);
             $table->timestamps();
         });
     }
