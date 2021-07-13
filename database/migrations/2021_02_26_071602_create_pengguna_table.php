@@ -17,8 +17,6 @@ class CreatePenggunaTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('nip', 18);
-            $table->string('email');
-            $table->string('name');
             $table->string('username');
             $table->string('password');
             $table->timestamps();

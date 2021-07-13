@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class pegawai extends Model
 {
     protected $table = 'pengguna';
-    protected $fillable = ['user_id', 'nip', 'name', 'username', 'password'];
+    protected $fillable = ['user_id', 'nip', 'username', 'password'];
     protected $guarded = [];
 
     public function user()

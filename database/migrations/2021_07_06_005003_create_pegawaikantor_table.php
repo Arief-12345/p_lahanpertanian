@@ -17,8 +17,6 @@ class CreatePegawaikantorTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('nip', 18);
-            $table->string('email', 150);
-            $table->string('name', 30);
             $table->string('username', 130);
             $table->string('password', 150);
             $table->timestamps();

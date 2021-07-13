@@ -8,7 +8,16 @@
             <div class="modal-body">
                 <form action="{{ url('/kelola_user/input') }}" method="POST">
                     {{ csrf_field() }}
-
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">NIP</label>
+                        <input type="text" class="form-control" name="nip" value="{{ old('nip') }}"
+                            placeholder="Masukkan NIP ...">
+                        @error('nip')
+                            <div class="text-danger ml-3 mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Username</label>
                         <input type="text" class="form-control" name="username" value="{{ old('username') }}"

@@ -58,7 +58,9 @@ class KelolakepalakantorController extends Controller
             'user_id' => $user->id,
             'nip' => $request->nip
         ]);
-        $tambah_kepalakantor = Kepalakantor::create($request->except(['email' => $request->email]));
+        $tambah_kepalakantor = Kepalakantor::create($request->except([
+            'email' => $request->email, 
+            'name' => $request->name]));
         // dd($tambah_pengguna);
         return redirect()->back()->with('sukses', 'Data Berhasil di Simpan !!!');
     }

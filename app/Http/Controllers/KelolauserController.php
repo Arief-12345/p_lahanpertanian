@@ -39,7 +39,7 @@ class KelolauserController extends Controller
     {
         $this->validate($request, [
             'username' => 'required|unique:users|max:20',
-            'nip' => 'requered|max:18',
+            'nip' => 'required|max:18',
             'name' => 'required|max:25',
             'email' => 'required|max:25|unique:users|email',
             'password' => 'required',
@@ -48,7 +48,6 @@ class KelolauserController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->username = $request->username;
-        // $user->role = 'Petugas';
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
@@ -58,7 +57,10 @@ class KelolauserController extends Controller
             'user_id' => $user->id,
             'nip' => $request->nip
         ]);
-        $tambah_pengguna = Pengguna::create($request->except(['email' => $request->email]));
+        $tambah_pengguna = Pengguna::create($request->except([
+            'email' => $request->email,
+            'name' => $request->name,
+        ]));
         // dd($tambah_pengguna);
         return redirect()->back()->with('sukses', 'Data Berhasil di Simpan !!!');
     }

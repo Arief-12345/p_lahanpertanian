@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GIS LAHAN SANGGAU</title>
+    <title>SIG LAHAN SANGGAU</title>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/datepicker3.css') }}" rel="stylesheet">
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span></button>
-                <a class="navbar-brand" href="#"><span>SIGEPELAPERKOHAPAN</span></a>
+                <a class="navbar-brand" href="#"><span>GIS LAHAN SANGGAU</span></a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
@@ -71,11 +71,11 @@
                         class="fa fa-bar-chart">&nbsp;</em> Kelola Data Gapoktani</a></li>
             <li class="@yield('aktif_kelola_data_produksi')"><a href="{{ url('/kelola_produksi') }}"><em
                         class="fa fa-toggle-off">&nbsp;</em> Kelola Data Produksi</a></li>
-            <li class="@yield('aktif_pemetaan')"><a
-                    href="{{ url('/kelola_pemetaan') }}"><em class="fa fa-bar-chart">&nbsp;</em>
+            <li class="@yield('aktif_pemetaan')"><a href="{{ url('/kelola_pemetaan') }}"><em
+                        class="fa fa-bar-chart">&nbsp;</em>
                     Pemetaan</a></li>
-            <li class="@yield('aktif_grafik')"><a
-                    href="{{ url('/kelola_grafik') }}"><em class="fa fa-bar-chart">&nbsp;</em>
+            <li class="@yield('aktif_grafik')"><a href="{{ url('/kelola_grafik') }}"><em
+                        class="fa fa-bar-chart">&nbsp;</em>
                     Grafik</a></li>
             <li class="@yield('aktif_kelola_data_potensi_lahan_pertanian')"><a
                     href="{{ url('/kelola_data_potensi_lahan_pertanian') }}"><em class="fa fa-clone">&nbsp;</em>
@@ -151,19 +151,16 @@
         $(document).ready(function() {
             $('#datatable').DataTable();
         });
-
     </script>
     <script>
         @if (Session::has('sukses'))
             toastr.success("{{ Session::get('sukses') }}", "Selamat")
         @endif
-
     </script>
     <script>
         @if (Session::has('gagal'))
             toastr.error("{{ Session::get('gagal') }}", "Gagal")
         @endif
-
     </script>
     @yield('footer')
 
