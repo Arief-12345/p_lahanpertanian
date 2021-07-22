@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Potensilahanpertanian;
+use App\Kecamatan;
 use Illuminate\Http\Request;
 
 class PotensilahanpertanianController extends Controller
@@ -15,7 +16,8 @@ class PotensilahanpertanianController extends Controller
     public function index()
     {
         $data = Potensilahanpertanian::all();
-        return view('potensi_lahan_pertanian.index', compact('data'));
+        $kecamatan = Kecamatan::all();
+        return view('potensi_lahan_pertanian.index', compact('data', 'kecamatan'));
     }
 
     /**
@@ -36,10 +38,11 @@ class PotensilahanpertanianController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
-            'luas_lahan' => 'required',
-            'status_lahan' => 'required',
-            'lokasi_lahan' => 'required',
+            'kecamatan_id' => 'required',
+            'tahun' => 'required',
+            'luas_lahan_kosong' => 'required',
         ]);
 
         $tambah = Potensilahanpertanian::create($request->all());
@@ -78,9 +81,9 @@ class PotensilahanpertanianController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'luas_lahan' => 'required',
-            'status_lahan' => 'required',
-            'lokasi_lahan' => 'required',
+            'kecamatan_id' => 'required',
+            'tahun' => 'required',
+            'luas_lahan_kosong' => 'required',
         ]);
 
         $update = Potensilahanpertanian::find($request->id)->update($request->all());

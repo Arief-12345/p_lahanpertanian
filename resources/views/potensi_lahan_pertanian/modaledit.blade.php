@@ -11,35 +11,32 @@
                     <input type="hidden" id="url_getdata" name="url_getdata" value="{{url('getdatapotensi/')}}">
                     <input type="hidden" id="id" name="id" value="">
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Luas Lahan</label>
-                        <input type="number" class="form-control" id="luas_lahan" name="luas_lahan" value="{{ old('luas_lahan') }}"
-                            placeholder="Masukkan Luas Lahan ...">
-                            <p style="color:red ; font-size: 12px">* Dalam Satuan Hektar (Ha)</p>
-                        @error('luas_lahan')
-                            <div class="text-danger ml-3 mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Status Lahan</label>
-                        <select class="form-control" id="status_lahan" name="status_lahan">
-                            <option value="">-- Pilih Status Lahan --</option>
-                            <option value="Ada Pemilik">Ada Pemilik</option>
-                            <option value="Tanpa Pemilik">Tanpa Pemilik</option>
+                        <label for="message-text" class="col-form-label">Kecamatan</label>
+                        <select class="form-control" name="kecamatan_id" id="kecamatan_id">
+                            <option value="">-- Pilih Kecamatan --</option>
+                            @foreach ( $kecamatan as $kec )
+                                <option value="{{$kec->id}}">{{$kec->nama_kecamatan}}</option>
+                            @endforeach
                         </select>
-                        @error('status_lahan')
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Luas Lahan Kosong</label>
+                        <input type="number" class="form-control" name="luas_lahan_kosong" id="luas_lahan_kosong" value="{{ old('luas_lahan_kosong') }}"
+                            placeholder="Masukkan Luas Lahan Kosong ...">
+                            <p style="color:red ; font-size: 12px">* Dalam Satuan Hektar (Ha)</p>
+                        @error('luas_lahan_kosong')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Lokasi Lahan</label>
-                        <textarea name="lokasi_lahan" class="form-control" id="lokasi_lahan" cols="20" rows="5"></textarea>
-                        @error('lokasi_lahan')
+                        <label for="recipient-name" class="col-form-label">Tahun</label>
+                        <input type="number" class="form-control" name="tahun" id="tahun" value="{{ old('tahun') }}"
+                            placeholder="Masukkan Luas Lahan ...">
+                        @error('tahun')
                             <div class="text-danger ml-3 mt-2">
-                                {{ $message }}`
+                                {{ $message }}
                             </div>
                         @enderror
                     </div>
@@ -66,9 +63,9 @@
                     console.log(response);
                     
                     $('#id').val(response.id);
-                    $('#luas_lahan').val(response.luas_lahan);
-                    $('#status_lahan').val(response.status_lahan);
-                    $('#lokasi_lahan').val(response.lokasi_lahan);
+                    $('#kecamatan_id').val(response.kecamatan_id);
+                    $('#tahun').val(response.tahun);
+                    $('#luas_lahan_kosong').val(response.luas_lahan_kosong);
                 }
             });    
         }

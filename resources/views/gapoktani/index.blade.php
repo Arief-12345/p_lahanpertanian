@@ -17,10 +17,9 @@
                         <thead>
                           <tr>
                             <th scope="col">No</th>
+                            <th scope="col">Nama Kecamatan</th>
                             <th scope="col">Nama Gapoktani</th>
                             <th scope="col">Ketua Gapoktani</th>
-                            <th scope="col">Jumlah Anggota</th>
-                            <th scope="col">Lokasi Gapoktani</th>
                             <th scope="col">Aksi</th>
                           </tr>
                         </thead>
@@ -28,10 +27,9 @@
                             @foreach ($data as $datas)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
+                                <td>{{ $datas->kecamatan->nama_kecamatan }}</td>
                                 <td>{{ $datas->nama_gapoktani }}</td>
                                 <td>{{ $datas->ketua_gapoktani }}</td>
-                                <td>{{ $datas->jmlh_anggota }}</td>
-                                <td>{{ $datas->lokasi_gapoktani }}</td>
                                 <td>
                                     <button class="btn btn-success btn-md" onclick="getdata({{$datas->id}})" data-toggle="modal" data-target="#edit">Edit</button>
                                     <a href="#" class="btn btn-danger btn-md hapus" id="{{ $datas->id }}">Hapus</a>

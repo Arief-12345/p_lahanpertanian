@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePegawaikantorTable extends Migration
+class CreatePegawaiKantorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePegawaikantorTable extends Migration
      */
     public function up()
     {
-        Schema::create('pegawaikantor', function (Blueprint $table) {
+        Schema::create('pegawai_kantor', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->string('nip', 18);
@@ -30,6 +30,6 @@ class CreatePegawaikantorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pegawaikantor');
+        Schema::dropIfExists('pegawai_kantor');
     }
 }

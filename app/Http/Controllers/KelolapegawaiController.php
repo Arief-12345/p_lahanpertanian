@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Pengguna;
+use App\Pegawai;
 use Illuminate\Http\Request;
 
-class KelolauserController extends Controller
+class KelolapegawaiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class KelolauserController extends Controller
      */
     public function index()
     {
-        $data = Pengguna::all();
-        return view('kelola_user.index', compact('data'));
+        $data = Pegawai::all();
+        return view('kelola_pegawai.index', compact('data'));
     }
 
     /**
@@ -52,12 +52,12 @@ class KelolauserController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        $pengguna = new Pengguna();
+        $pegawai = new Pegawai();
         $request->request->add([
             'user_id' => $user->id,
             'nip' => $request->nip
         ]);
-        $tambah_pengguna = Pengguna::create($request->except([
+        $tambah_pegawai = Pegawai::create($request->except([
             'email' => $request->email,
             'name' => $request->name,
         ]));
@@ -102,7 +102,7 @@ class KelolauserController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-        $update_pengguna = Pengguna::where('user_id', $request->id_user)->first()->update($request->except([$request->urlgetdata]));
+        $update_pegawai = Pegawai::where('user_id', $request->id_user)->first()->update($request->except([$request->urlgetdata]));
 
         return redirect()->back()->with('sukses', 'Data Berhasil di Update !!!');
     }
@@ -115,15 +115,15 @@ class KelolauserController extends Controller
      */
     public function destroy($id)
     {
-        $pengguna = Pengguna::where('user_id', $id)->first()->delete();
+        $pengguna = Pegawai::where('user_id', $id)->first()->delete();
         $user = User::find($id)->delete();
 
         return redirect()->back()->with('sukses', 'Data Berhasil di Hapus !!!');
     }
 
-    public function getdatapengguna($id)
+    public function getdatapegawai($id)
     {
-        $data = Pengguna::find($id);
+        $data = Pegawai::find($id);
         $data->user;
         return $data;
     }

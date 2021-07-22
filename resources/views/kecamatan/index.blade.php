@@ -1,27 +1,24 @@
 @extends('layouts.master')
-@section('aktif_kelola_user', 'active')
+@section('aktif_pemetaan', 'active')
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>Kelola Pegawai</h3>
+                    <h3>Kelola Pemetaan</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row" style="margin-left: 10px; margin-top: 10px">
                         <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#tambah"><i
                                 class="fa fa-user-plus"></i> Tambah</button> <br>
                     </div>
-                    @include('kelola_user/modaltambah')
+                    @include('kecamatan/modaltambah')
                     <div class="row" style="margin-top: 20px; margin-left: 10px; margin-right: 10px">
                         <table class="table" id="datatable">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">NIP</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Email</th>
+                                    <th scope="col">Nama Kecamatan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -29,19 +26,16 @@
                                 @foreach ($data as $datas)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
-                                        <td>{{ $datas->nip }}</td>
-                                        <td>{{ $datas->user->name }}</td>
-                                        <td>{{ $datas->username }}</td>
-                                        <td>{{ $datas->user->email }}</td>
+                                        <td>{{ $datas->nama_kecamatan }}</td>
                                         <td>
                                             <button class="btn btn-success btn-md" onclick="getdata({{ $datas->id }})"
                                                 data-toggle="modal" data-target="#edit">Edit</button>
                                             <a href="#" class="btn btn-danger btn-md hapus"
-                                                id="{{ $datas->user_id }}">Hapus</a>
+                                                id="{{ $datas->id }}">Hapus</a>
                                         </td>
                                     </tr>
                                 @endforeach
-                                @include('kelola_user/modaledit')
+                                @include('kecamatan/modaledit')
                             </tbody>
                         </table>
                     </div>
@@ -73,9 +67,10 @@
                 .then((result) => {
                     console.log(result);
                     if (result.value) {
-                        window.location = "/kelola_user/hapus/" + Id + "";
+                        window.location = "/kelola_data_komoditi_hasil_panen/hapus/" + Id + "";
                     }
                 });
         });
+
     </script>
 @endsection

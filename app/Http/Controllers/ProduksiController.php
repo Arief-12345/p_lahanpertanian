@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Produksi;
+use App\Kecamatan;
+use App\Komoditihasilpanen;
 
 class ProduksiController extends Controller
 {
@@ -15,7 +17,9 @@ class ProduksiController extends Controller
     public function index()
     {
         $data = Produksi::all();
-        return view('produksi.index', compact('data'));
+        $kecamatan = Kecamatan::all();
+        $komoditi = Komoditihasilpanen::all();
+        return view('produksi.index', compact('data', 'kecamatan', 'komoditi'));
     }
 
     /**
@@ -36,10 +40,13 @@ class ProduksiController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
-            'jenis_produksi' => 'required',
+            'kecamatan_id' => 'required',
+            'komoditi_id' => 'required',
+            'tahun' => 'required',
             'jmlh_produksi' => 'required',
-            'lokasi_produksi' => 'required',
+            'luas_penggunaan_lahan' => 'required',
         ]);
 
         $tambah_produksi = Produksi::create($request->all());
@@ -78,9 +85,11 @@ class ProduksiController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'jenis_produksi' => 'required',
+            'kecamatan_id' => 'required',
+            'komoditi_id' => 'required',
+            'tahun' => 'required',
             'jmlh_produksi' => 'required',
-            'lokasi_produksi' => 'required',
+            'luas_penggunaan_lahan' => 'required',
         ]);
 
         $tambah_produksi = Produksi::find($request->id)->update($request->all());

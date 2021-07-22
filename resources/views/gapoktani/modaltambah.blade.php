@@ -30,24 +30,13 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Jumlah Anggota</label>
-                        <input type="number" class="form-control" name="jmlh_anggota" value="{{ old('jmlh_anggota') }}"
-                            placeholder="Masukkan Jumlah Anggota ...">
-                        @error('jmlh_anggota')
-                            <div class="text-danger ml-3 mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Lokasi Gapoktani</label>
-                        <input type="text" class="form-control" name="lokasi_gapoktani" value="{{ old('lokasi_gapoktani') }}"
-                            placeholder="Masukkan Lokasi Gapoktani ...">
-                        @error('lokasi_gapoktani')
-                            <div class="text-danger ml-3 mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                        <label for="message-text" class="col-form-label">Kecamatan</label>
+                        <select class="form-control" name="kecamatan_id" id="">
+                            <option value="">-- Pilih Kecamatan --</option>
+                            @foreach ( $kecamatan as $kec )
+                                <option value="{{$kec->id}}">{{$kec->nama_kecamatan}}</option>
+                            @endforeach
+                        </select>
                     </div>
             </div>
             <div class="modal-footer">

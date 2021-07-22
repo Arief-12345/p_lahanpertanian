@@ -12,7 +12,7 @@
                     <input type="hidden" id="id" name="id" value="">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Nama Gapoktani</label>
-                        <input type="text" class="form-control" id="nama_gapoktani" name="nama_gapoktani" value="{{ old('nama_gapoktani') }}"
+                        <input type="text" class="form-control" name="nama_gapoktani" id="nama_gapoktani" value="{{ old('nama_gapoktani') }}"
                             placeholder="Masukkan Nama Gapoktani ...">
                         @error('nama_gapoktani')
                             <div class="text-danger ml-3 mt-2">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Ketua Gapoktani</label>
-                        <input type="text" class="form-control" id="ketua_gapoktani" name="ketua_gapoktani" value="{{ old('ketua_gapoktani') }}"
+                        <input type="text" class="form-control" name="ketua_gapoktani" id="ketua_gapoktani" value="{{ old('ketua_gapoktani') }}"
                             placeholder="Masukkan Nama Ketua Gapoktani ...">
                         @error('ketua_gapoktani')
                             <div class="text-danger ml-3 mt-2">
@@ -31,24 +31,13 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Jumlah Anggota</label>
-                        <input type="number" class="form-control" id="jmlh_anggota" name="jmlh_anggota" value="{{ old('jmlh_anggota') }}"
-                            placeholder="Masukkan Jumlah Anggota ...">
-                        @error('jmlh_anggota')
-                            <div class="text-danger ml-3 mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Lokasi Gapoktani</label>
-                        <input type="text" class="form-control" id="lokasi_gapoktani" name="lokasi_gapoktani" value="{{ old('lokasi_gapoktani') }}"
-                            placeholder="Masukkan Lokasi Gapoktani ...">
-                        @error('lokasi_gapoktani')
-                            <div class="text-danger ml-3 mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                        <label for="message-text" class="col-form-label">Kecamatan</label>
+                        <select class="form-control" name="kecamatan_id" id="kecamatan_id">
+                            <option value="">-- Pilih Kecamatan --</option>
+                            @foreach ( $kecamatan as $kec )
+                                <option value="{{$kec->id}}">{{$kec->nama_kecamatan}}</option>
+                            @endforeach
+                        </select>
                     </div>
             </div>
             <div class="modal-footer">
@@ -77,8 +66,7 @@
                     $('#id').val(response.id);
                     $('#nama_gapoktani').val(response.nama_gapoktani);
                     $('#ketua_gapoktani').val(response.ketua_gapoktani);
-                    $('#jmlh_anggota').val(response.jmlh_anggota);
-                    $('#lokasi_gapoktani').val(response.lokasi_gapoktani);
+                    $('#kecamatan_id').val(response.kecamatan_id);
                 }
             });    
         }

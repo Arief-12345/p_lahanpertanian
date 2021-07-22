@@ -20,27 +20,6 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Jumlah Komoditi</label>
-                        <input type="number" class="form-control" name="jmlh_komoditi" id="jmlh_komoditi"
-                            value="{{ old('jmlh_komoditi') }}" placeholder="Masukkan Jumlah Komoditi ...">
-                        <p style="color:red ; font-size: 12px">* Dalam Satuan Ton</p>
-                        @error('jmlh_komoditi')
-                            <div class="text-danger ml-3 mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Lokasi Komoditi</label>
-                        <textarea name="lokasi_komoditi" class="form-control" id="lokasi_komoditi" cols="20"
-                            rows="5"></textarea>
-                        @error('lokasi_komoditi')
-                            <div class="text-danger ml-3 mt-2">
-                                {{ $message }}`
-                            </div>
-                        @enderror
-                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -64,8 +43,6 @@
 
                 $('#id').val(response.id);
                 $('#nama_komoditi').val(response.nama_komoditi);
-                $('#jmlh_komoditi').val(response.jmlh_komoditi);
-                $('#lokasi_komoditi').val(response.lokasi_komoditi);
             }
         });
     }

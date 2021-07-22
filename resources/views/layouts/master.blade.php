@@ -63,7 +63,7 @@
         </form>
         <ul class="nav menu">
             <li><a href="{{ url('/home') }}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-            <li class="@yield('aktif_kelola_user')"><a href="{{ url('/kelola_user') }}"><em
+            <li class="@yield('aktif_kelola_pegawai')"><a href="{{ url('/kelola_pegawai') }}"><em
                         class="fa fa-user">&nbsp;</em> Kelola Pegawai</a></li>
             <li class="@yield('aktif_kelola_kepalakantor')"><a href="{{ url('/kelola_kepalakantor') }}"><em
                         class="fa fa-user">&nbsp;</em> Kelola Kepala Kantor</a></li>

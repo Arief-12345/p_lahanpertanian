@@ -17,9 +17,9 @@
                         <thead>
                           <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Luas Lahan</th>
-                            <th scope="col">Status Lahan</th>
-                            <th scope="col">Lokasi Lahan</th>
+                            <th scope="col">Nama Kecamatan</th>
+                            <th scope="col">Tahun</th>
+                            <th scope="col">Luas Lahan Kosong</th>
                             <th scope="col">Aksi</th>
                           </tr>
                         </thead>
@@ -27,9 +27,9 @@
                             @foreach ($data as $datas)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $datas->luas_lahan . " Ha" }}</td>
-                                <td>{{ $datas->status_lahan }}</td>
-                                <td>{{ $datas->lokasi_lahan }}</td>
+                                <td>{{ $datas->kecamatan->nama_kecamatan }}</td>
+                                <td>{{ $datas->tahun }}</td>
+                                <td>{{ $datas->luas_lahan_kosong . " Ha" }}</td>
                                 <td>
                                     <button class="btn btn-success btn-md" onclick="getdata({{$datas->id}})" data-toggle="modal" data-target="#edit">Edit</button>
                                     <a href="#" class="btn btn-danger btn-md hapus" id="{{ $datas->id }}">Hapus</a>

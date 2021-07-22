@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class pegawai extends Model
+class Pegawai extends Model
 {
-    protected $table = 'pengguna';
+    protected $table = 'pegawai_kantor';
     protected $fillable = ['user_id', 'nip', 'username', 'password'];
     protected $guarded = [];
 

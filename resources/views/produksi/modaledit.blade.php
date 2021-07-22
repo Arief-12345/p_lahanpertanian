@@ -11,31 +11,49 @@
                     <input type="hidden" id="url_getdata" name="url_getdata" value="{{url('getdataproduksi/')}}">
                     <input type="hidden" id="id" name="id" value="">
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Jenis Produksi</label>
-                        <input type="text" class="form-control" id="jenis_produksi" name="jenis_produksi" value="{{ old('jenis_produksi') }}"
-                            placeholder="Masukkan Jenis Produksi ...">
-                        @error('jenis_produksi')
+                        <label for="message-text" class="col-form-label">Komoditi</label>
+                        <select class="form-control" name="komoditi_id" id="komoditi_id">
+                            <option value="">-- Pilih Komoditi --</option>
+                            @foreach ( $komoditi as $kom )
+                                <option value="{{$kom->id}}">{{$kom->nama_komoditi}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Kecamatan</label>
+                        <select class="form-control" name="kecamatan_id" id="kecamatan_id">
+                            <option value="">-- Pilih Kecamatan --</option>
+                            @foreach ( $kecamatan as $kec )
+                                <option value="{{$kec->id}}">{{$kec->nama_kecamatan}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Tahun Produksi</label>
+                        <input type="number" class="form-control" name="tahun" id="tahun" value="{{ old('tahun') }}"
+                            placeholder="Masukkan Tahun ...">
+                        @error('tahun')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Lokasi Produksi</label>
-                        <input type="text" class="form-control" id="lokasi_produksi" name="lokasi_produksi" value="{{ old('lokasi_produksi') }}"
-                            placeholder="Masukkan Lokasi Produksi ...">
-                        @error('lokasi_produksi')
+                        <label for="message-text" class="col-form-label">Jumlah Produksi</label>
+                        <input type="text" class="form-control" name="jmlh_produksi" id="jmlh_produksi" value="{{ old('jmlh_produksi') }}"
+                            placeholder="Masukkan Jumlah Produksi ...">
+                        @error('jmlh_produksi')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}`
                             </div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Jumlah Produksi</label>
-                        <input type="number" class="form-control" id="jmlh_produksi" name="jmlh_produksi" value="{{ old('jmlh_produksi') }}"
-                            placeholder="Masukkan Jumlah Produksi ...">
-                        <p style="color:red ; font-size: 12px">* Dalam Kilogram</p>
-                        @error('jmlh_produksi')
+                        <label for="message-text" class="col-form-label">Luas Penggunaan Lahan</label>
+                        <input type="number" class="form-control" name="luas_penggunaan_lahan" id="luas_penggunaan_lahan" value="{{ old('luas_penggunaan_lahan') }}"
+                            placeholder="Masukkan Luas Penggunaan Lahan ...">
+                        <p style="color:red ; font-size: 12px">* Dalam Hektar</p>
+                        @error('luas_penggunaan_lahan')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}
                             </div>
@@ -66,9 +84,11 @@
                     console.log(response);
                     
                     $('#id').val(response.id);
-                    $('#jenis_produksi').val(response.jenis_produksi);
+                    $('#komoditi_id').val(response.komoditi_id);
+                    $('#kecamatan_id').val(response.kecamatan_id);
+                    $('#tahun').val(response.tahun);
                     $('#jmlh_produksi').val(response.jmlh_produksi);
-                    $('#lokasi_produksi').val(response.lokasi_produksi);
+                    $('#luas_penggunaan_lahan').val(response.luas_penggunaan_lahan);
                 }
             });    
         }

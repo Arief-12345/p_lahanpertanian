@@ -22,11 +22,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/kelola_user', 'KelolauserController@index');
-Route::post('/kelola_user/input', 'KelolauserController@store');
-Route::post('/kelola_user/update', 'KelolauserController@update');
-Route::get('/kelola_user/hapus/{id}', 'KelolauserController@destroy');
-Route::get('/getdatapengguna/{id}', 'KelolauserController@getdatapengguna')->name('get.data.pengguna');
+Route::get('/kelola_pegawai', 'KelolapegawaiController@index');
+Route::post('/kelola_pegawai/input', 'KelolapegawaiController@store');
+Route::post('/kelola_pegawai/update', 'KelolapegawaiController@update');
+Route::get('/kelola_pegawai/hapus/{id}', 'KelolapegawaiController@destroy');
+Route::get('/getdatapegawai/{id}', 'KelolapegawaiController@getdatapegawai')->name('get.data.pengguna');
 
 Route::get('/kelola_kepalakantor', 'KelolakepalakantorController@index');
 Route::post('/kelola_kepalakantor/input', 'KelolakepalakantorController@store');
@@ -57,3 +57,5 @@ Route::post('/kelola_data_komoditi_hasil_panen/input', 'KomoditihasilpanenContro
 Route::post('/kelola_data_komoditi_hasil_panen/update', 'KomoditihasilpanenController@update');
 Route::get('/getdatakomoditi/{id}', 'KomoditihasilpanenController@getdatakomoditi')->name('get.data.komoditi');
 Route::get('/kelola_data_komoditi_hasil_panen/hapus/{id}', 'KomoditihasilpanenController@destroy');
+
+Route::get('/kelola_data_pemetaan', 'KecamatanController@index');
