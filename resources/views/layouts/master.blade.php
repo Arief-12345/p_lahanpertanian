@@ -29,6 +29,14 @@
     {{-- Toastr --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+    {{-- Leafletjs --}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
 </head>
 
 <body>
@@ -62,70 +70,74 @@
             </div>
         </form>
         <ul class="nav menu">
-        <li>
-            <a href="{{ url('/home') }}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a>
-        </li>
+            <li>
+                <a href="{{ url('/home') }}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a>
+            </li>
 
-        @if (auth()->user()->role == 'Admin')
-        <li class="@yield('aktif_kelola_pegawai')">
-            <a href="{{ url('/kelola_pegawai') }}"><em class="fa fa-user">&nbsp;</em> Kelola Pegawai</a>
-        </li>
-        @endif
+            @if (auth()->user()->role == 'Admin')
+                <li class="@yield('aktif_kelola_pegawai')">
+                    <a href="{{ url('/kelola_pegawai') }}"><em class="fa fa-user">&nbsp;</em> Kelola Pegawai</a>
+                </li>
+            @endif
 
-        <!-- @if (auth()->user()->role == 'Admin')
-        <li class="@yield('aktif_kelola_kepalakantor')">
+            <!-- @if (auth()->user()->role == 'Admin') <li class="@yield('aktif_kelola_kepalakantor')">
             <a href="{{ url('/kelola_kepalakantor') }}"><em class="fa fa-user">&nbsp;</em> Kelola Kepala Kantor</a>
-        </li>
-        @endif -->
+        </li> @endif -->
 
-        @if (auth()->user()->role == 'Admin')
-        <li class="@yield('aktif_kelola_data_gapoktani')">
-            <a href="{{ url('/kelola_gapoktani') }}"><em class="fa fa-bar-chart">&nbsp;</em> Kelola Data Gapoktani</a>
-        </li>
-        @endif
+            @if (auth()->user()->role == 'Admin')
+                <li class="@yield('aktif_kelola_data_gapoktani')">
+                    <a href="{{ url('/kelola_gapoktani') }}"><em class="fa fa-bar-chart">&nbsp;</em> Kelola Data
+                        Gapoktani</a>
+                </li>
+            @endif
 
-        @if (auth()->user()->role == 'Admin')
-        <li class="@yield('aktif_kelola_data_produksi')">
-            <a href="{{ url('/kelola_produksi') }}"><em class="fa fa-toggle-off">&nbsp;</em> Kelola Data Produksi</a>
-        </li>
-        @endif
+            @if (auth()->user()->role == 'Admin')
+                <li class="@yield('aktif_kelola_data_produksi')">
+                    <a href="{{ url('/kelola_produksi') }}"><em class="fa fa-toggle-off">&nbsp;</em> Kelola Data
+                        Produksi</a>
+                </li>
+            @endif
 
-        @if (auth()->user()->role == 'Admin')
-        <li class="@yield('aktif_pemetaan')">
-            <a href="{{ url('/kelola_pemetaan') }}"><em class="fa fa-bar-chart">&nbsp;</em>Pemetaan</a>
-        </li>
-        @endif
+            @if (auth()->user()->role == 'Admin')
+                <li class="@yield('aktif_kelola_pemetaan')">
+                    <a href="{{ url('/kelola_pemetaan') }}"><em class="fa fa-bar-chart">&nbsp;</em>Pemetaan</a>
+                </li>
+            @endif
 
-        @if (auth()->user()->role == 'Admin')
-        <li class="@yield('aktif_kelola_data_potensi_lahan_pertanian')">
-            <a href="{{ url('/kelola_data_potensi_lahan_pertanian') }}"><em class="fa fa-clone">&nbsp;</em>Kelola Data Potensi Lahan Pertanian</a>
-        </li>
-        @endif
+            @if (auth()->user()->role == 'Admin')
+                <li class="@yield('aktif_kelola_data_potensi_lahan_pertanian')">
+                    <a href="{{ url('/kelola_data_potensi_lahan_pertanian') }}"><em
+                            class="fa fa-clone">&nbsp;</em>Kelola Data Potensi Lahan Pertanian</a>
+                </li>
+            @endif
 
-        @if (auth()->user()->role == 'Admin')
-        <li class="@yield('aktif_kelola_data_komoditi_hasil_panen')">
-            <a href="{{ url('/kelola_data_komoditi_hasil_panen') }}"><em class="fa fa-clone">&nbsp;</em> Kelola Data Komoditi Hasil Panen</a>
-        </li>
-        @endif
+            @if (auth()->user()->role == 'Admin')
+                <li class="@yield('aktif_kelola_data_komoditi_hasil_panen')">
+                    <a href="{{ url('/kelola_data_komoditi_hasil_panen') }}"><em class="fa fa-clone">&nbsp;</em>
+                        Kelola Data Komoditi Hasil Panen</a>
+                </li>
+            @endif
 
-        @if (auth()->user()->role == 'Admin')
-        <li class="@yield('aktif_kelola_data_penggunaan_lahan')">
-            <a href="{{ url('/kelola_data_penggunaan_lahan') }}"><em class="fa fa-clone">&nbsp;</em> Kelola Data Penggunaan Lahan</a>
-        </li>
-        @endif
+            @if (auth()->user()->role == 'Admin')
+                <li class="@yield('aktif_kelola_data_penggunaan_lahan')">
+                    <a href="{{ url('/kelola_data_penggunaan_lahan') }}"><em class="fa fa-clone">&nbsp;</em> Kelola
+                        Data Penggunaan Lahan</a>
+                </li>
+            @endif
 
-        @if (auth()->user()->role == 'Pegawai Kantor')
-        <li class="@yield('aktif_perhitungan_luas_lahan')">
-            <a href="{{ url('/perhitungan_luas_lahan') }}"><em class="fa fa-clone">&nbsp;</em> Perhitungan Luas Lahan</a>
-        </li>
-        @endif
+            @if (auth()->user()->role == 'Pegawai Kantor')
+                <li class="@yield('aktif_perhitungan_luas_lahan')">
+                    <a href="{{ url('/perhitungan_luas_lahan') }}"><em class="fa fa-clone">&nbsp;</em> Perhitungan
+                        Luas Lahan</a>
+                </li>
+            @endif
 
-        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                <em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
+                    <em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
         </ul>
     </div>
     <!--/.sidebar-->

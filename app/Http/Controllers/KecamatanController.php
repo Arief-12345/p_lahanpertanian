@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Kecamatan;
 use Illuminate\Http\Request;
 
 class KecamatanController extends Controller
@@ -13,7 +14,9 @@ class KecamatanController extends Controller
      */
     public function index()
     {
-        //
+        $data = Kecamatan::all();
+
+        return view('pemetaan.index', compact('data'));
     }
 
     /**

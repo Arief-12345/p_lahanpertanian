@@ -16,8 +16,8 @@ class CreateKecamatanTable extends Migration
         Schema::create('kecamatan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kecamatan', 30);
-            $table->string('lt', 11);
-            $table->string('ln', 11);
+            $table->longText('geojson')->nullable();
+            $table->string('warna', 15)->nullable();
             $table->timestamps();
         });
     }
