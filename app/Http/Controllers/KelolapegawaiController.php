@@ -48,6 +48,7 @@ class KelolapegawaiController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->username = $request->username;
+        $user->role = 'Pegawai Kantor';
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
