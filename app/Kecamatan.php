@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kecamatan extends Model
 {
     protected $table = 'kecamatan';
-    protected $fillable = ['nama_kecamatan', 'lt', 'ln'];
+    protected $fillable = ['nama_kecamatan', 'warna', 'geojson'];
     protected $guarded = [];
 
     public function gapoktani()

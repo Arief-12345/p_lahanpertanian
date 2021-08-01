@@ -12,7 +12,7 @@
                         <label for="message-text" class="col-form-label">Nama Komoditi</label>
                         <input type="text" class="form-control" name="nama_komoditi"
                             value="{{ old('nama_komoditi') }}" placeholder="Masukkan Nama Komoditi ...">
-                        @error('status_lahan')
+                        @error('nama_komoditi')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}
                             </div>

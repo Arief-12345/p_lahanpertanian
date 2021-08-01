@@ -43,12 +43,6 @@
             </div>
         </div>
     </div>
-    {{-- <script>
-        $('.delete').click(function() {
-            var Id = $(this).attr('user-id');
-            alert(Id);
-        });
-    </script> --}}
 @endsection
 @section('footer')
 

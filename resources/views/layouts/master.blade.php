@@ -86,14 +86,14 @@
 
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_data_gapoktani')">
-                    <a href="{{ url('/kelola_gapoktani') }}"><em class="fa fa-bar-chart">&nbsp;</em> Kelola Data
+                    <a href="{{ url('/kelola_gapoktani') }}"><em class="fa fa-bar-chart">&nbsp;</em> Kelola
                         Gapoktani</a>
                 </li>
             @endif
 
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_data_produksi')">
-                    <a href="{{ url('/kelola_produksi') }}"><em class="fa fa-toggle-off">&nbsp;</em> Kelola Data
+                    <a href="{{ url('/kelola_produksi') }}"><em class="fa fa-toggle-off">&nbsp;</em> Kelola
                         Produksi</a>
                 </li>
             @endif
@@ -107,21 +107,21 @@
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_data_potensi_lahan_pertanian')">
                     <a href="{{ url('/kelola_data_potensi_lahan_pertanian') }}"><em
-                            class="fa fa-clone">&nbsp;</em>Kelola Data Potensi Lahan Pertanian</a>
+                            class="fa fa-clone">&nbsp;</em>Kelola Potensi Lahan</a>
                 </li>
             @endif
 
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_data_komoditi_hasil_panen')">
                     <a href="{{ url('/kelola_data_komoditi_hasil_panen') }}"><em class="fa fa-clone">&nbsp;</em>
-                        Kelola Data Komoditi Hasil Panen</a>
+                        Kelola Komoditi Hasil Panen</a>
                 </li>
             @endif
 
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_data_penggunaan_lahan')">
                     <a href="{{ url('/kelola_data_penggunaan_lahan') }}"><em class="fa fa-clone">&nbsp;</em> Kelola
-                        Data Penggunaan Lahan</a>
+                     Penggunaan Lahan</a>
                 </li>
             @endif
 

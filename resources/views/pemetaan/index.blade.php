@@ -12,7 +12,7 @@
                         <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#tambah"><i
                                 class="fa fa-user-plus"></i> Tambah</button> <br>
                     </div>
-                    {{-- @include('kelola_pemetaan/modaltambah') --}}
+                     @include('pemetaan/modaltambah') 
                     <div class="row" style="margin-top: 20px; margin-left: 10px; margin-right: 10px">
                         <table class="table" id="datatable">
                             <thead>
@@ -33,11 +33,11 @@
                                             <button class="btn btn-success btn-md" onclick="getdata({{ $datas->id }})"
                                                 data-toggle="modal" data-target="#edit">Edit</button>
                                             <a href="#" class="btn btn-danger btn-md hapus"
-                                                id="{{ $datas->user_id }}">Hapus</a>
+                                                id="{{ $datas->id }}">Hapus</a>
                                         </td>
                                     </tr>
                                 @endforeach
-                                {{-- @include('kelola_pegawai/modaledit') --}}
+                                @include('pemetaan/modaledit')
                             </tbody>
                         </table>
                     </div>
@@ -84,10 +84,18 @@
                 id: 'mapbox/dark-v10'
             });
 
+        @foreach ($data as $datas)
+            var data{{ $datas->id }} = L.layerGroup();
+        @endforeach
+            var kecamatan = L.layerGroup();
         var map = L.map('map', {
             center: [0.2466385230005252, 110.50176394336441],
-            zoom: 10,
-            layers: [peta2]
+            zoom: 8,
+            layers: [peta2, 
+            @foreach ($data as $datas)
+                data{{ $datas->id }},
+            @endforeach
+            kecamatan]
         });
 
         var baseMaps = {
@@ -97,7 +105,23 @@
             "Dark": peta4
         };
 
-        L.control.layers(baseMaps).addTo(map);
+        var overlayer = {
+            @foreach ($data as $datas)
+            "{{ $datas->nama_kecamatan }}" : data{{ $datas->id }},
+            @endforeach
+        };
+
+        L.control.layers(baseMaps, overlayer).addTo(map);
+
+        @foreach ($data as $datas)
+            L.geoJSON(<?= $datas->geojson ?>{
+                style: {
+                    color: 'white',
+                    fillColor: '{{$datas->warna}}',
+                    fillOpacity: 1.0,
+                },
+            }).addTo(data{{ $datas->id }}).bindPopup("{{ $datas->nama_kecamatan }}");
+        @endforeach
     </script>
     <script>
         $('.hapus').click(function() {
@@ -114,7 +138,7 @@
                 .then((result) => {
                     console.log(result);
                     if (result.value) {
-                        window.location = "/kelola_pegawai/hapus/" + Id + "";
+                        window.location = "/pemetaan/hapus/" + Id + "";
                     }
                 });
         });

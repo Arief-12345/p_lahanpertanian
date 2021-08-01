@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Kecamatan;
 use Illuminate\Http\Request;
+use App\Kecamatan;
 
 class KecamatanController extends Controller
 {
@@ -37,7 +37,14 @@ class KecamatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_kecamatan' => 'required',
+            'warna' => 'required',
+            'geojson' => 'required',
+        ]);
+
+        $tambah = Kecamatan::create($request->all());
+        return redirect()->back()->with('sukses', 'Data Berhasil di Simpan !!!');
     }
 
     /**
@@ -69,9 +76,16 @@ class KecamatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_kecamatan' => 'required',
+            'warna' => 'required',
+            'geojson' => 'required',
+        ]);
+
+        $update = Kecamatan::find($request->id)->update($request->all());
+        return redirect()->back()->with('sukses', 'Data Berhasil di Simpan !!!');
     }
 
     /**
@@ -82,6 +96,14 @@ class KecamatanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Kecamatan::find($id)->delete();
+
+        return redirect()->back()->with('sukses', 'Data Berhasil di Hapus !!!');
+    }
+
+    public function getdatapemetaan($id)
+    {
+        $data = Kecamatan::find($id);
+        return $data;
     }
 }

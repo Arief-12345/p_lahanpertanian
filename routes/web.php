@@ -59,6 +59,10 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function () {
     Route::get('/kelola_data_komoditi_hasil_panen/hapus/{id}', 'KomoditihasilpanenController@destroy');
 
     Route::get('/kelola_pemetaan', 'KecamatanController@index');
+    Route::post('/pemetaan/input', 'KecamatanController@store');
+    Route::post('/pemetaan/update', 'KecamatanController@update');
+    Route::get('/pemetaan/hapus/{id}', 'KecamatanController@destroy');
+    Route::get('/getdatapemetaan/{id}', 'KecamatanController@getdatapemetaan');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:Pegawai Kantor']], function () {
