@@ -16,6 +16,7 @@ class CreatePenggunaanLahanTable extends Migration
         Schema::create('penggunaan_lahan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kecamatan_id');
+            $table->integer('luas_penggunaan_lahan');
             $table->timestamps();
         });
     }

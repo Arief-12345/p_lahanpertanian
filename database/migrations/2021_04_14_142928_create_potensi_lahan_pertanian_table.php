@@ -16,7 +16,7 @@ class CreatePotensiLahanPertanianTable extends Migration
         Schema::create('potensi_lahan_pertanian', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kecamatan_id');
-            $table->date('tahun');
+            $table->integer('tahun');
             $table->integer('luas_lahan_kosong');
             $table->timestamps();
         });

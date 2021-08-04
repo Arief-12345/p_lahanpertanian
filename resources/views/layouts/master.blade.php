@@ -119,8 +119,8 @@
             @endif
 
             @if (auth()->user()->role == 'Admin')
-                <li class="@yield('aktif_kelola_data_penggunaan_lahan')">
-                    <a href="{{ url('/kelola_data_penggunaan_lahan') }}"><em class="fa fa-clone">&nbsp;</em> Kelola
+                <li class="@yield('aktif_kelola_penggunaan_lahan')">
+                    <a href="{{ url('/kelola_penggunaan_lahan') }}"><em class="fa fa-clone">&nbsp;</em> Kelola
                      Penggunaan Lahan</a>
                 </li>
             @endif

@@ -24,4 +24,9 @@ class Kecamatan extends Model
     {
         return $this->hasOne(Potensilahanpertanian::class);
     }
+
+    public function penggunaanlahan()
+    {
+        return $this->hasOne(Penggunaanlahan::class);
+    }
 }

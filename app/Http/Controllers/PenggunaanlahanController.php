@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Produksi;
+use App\Penggunaanlahan;
 use App\Kecamatan;
-use App\Komoditihasilpanen;
 
-class ProduksiController extends Controller
+class PenggunaanlahanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,10 @@ class ProduksiController extends Controller
      */
     public function index()
     {
-        $data = Produksi::all();
+        $data = Penggunaanlahan::all();
         $kecamatan = Kecamatan::all();
-        $komoditi = Komoditihasilpanen::all();
-        return view('produksi.index', compact('data', 'kecamatan', 'komoditi'));
+
+        return view('penggunaan_lahan.index', compact('data', 'kecamatan'));
     }
 
     /**
@@ -40,16 +39,12 @@ class ProduksiController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $this->validate($request, [
             'kecamatan_id' => 'required',
-            'komoditi_id' => 'required',
-            'tahun' => 'required',
-            'jmlh_produksi' => 'required',
-            'nilai_hasil_produksi' => 'required',
+            'luas_penggunaan_lahan' => 'required',
         ]);
 
-        $tambah_produksi = Produksi::create($request->all());
+        $tambah = Penggunaanlahan::create($request->all());
         return redirect()->back()->with('sukses', 'Data Berhasil di Simpan !!!');
     }
 
@@ -86,13 +81,10 @@ class ProduksiController extends Controller
     {
         $this->validate($request, [
             'kecamatan_id' => 'required',
-            'komoditi_id' => 'required',
-            'tahun' => 'required',
-            'jmlh_produksi' => 'required',
-            'nilai_hasil_produksi' => 'required',
+            'luas_penggunaan_lahan' => 'required',
         ]);
 
-        $update = Produksi::find($request->id)->update($request->all());
+        $update = Penggunaanlahan::find($request->id)->update($request->all());
         return redirect()->back()->with('sukses', 'Data Berhasil di Simpan !!!');
     }
 
@@ -104,14 +96,14 @@ class ProduksiController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Produksi::find($id)->delete();
+        $delete = Penggunaanlahan::find($id)->delete();
 
         return redirect()->back()->with('sukses', 'Data Berhasil di Hapus !!!');
     }
 
-    public function getdataproduksi($id)
+    public function getdatapenggunaanlahan($id)
     {
-        $data = Produksi::find($id);
+        $data = Penggunaanlahan::find($id);
         return $data;
     }
 }

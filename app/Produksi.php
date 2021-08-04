@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produksi extends Model
 {
     protected $table = 'produksi_panen';
-    protected $fillable = ['kecamatan_id', 'komoditi_id', 'tahun', 'jmlh_produksi', 'luas_penggunaan_lahan'];
+    protected $fillable = ['kecamatan_id', 'komoditi_id', 'tahun', 'jmlh_produksi', 'nilai_hasil_produksi'];
     protected $guarded = [];
 
     public function kecamatan()

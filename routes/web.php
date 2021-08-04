@@ -63,6 +63,12 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function () {
     Route::post('/pemetaan/update', 'KecamatanController@update');
     Route::get('/pemetaan/hapus/{id}', 'KecamatanController@destroy');
     Route::get('/getdatapemetaan/{id}', 'KecamatanController@getdatapemetaan');
+
+    Route::get('/kelola_penggunaan_lahan', 'PenggunaanlahanController@index');
+    Route::post('/penggunaan_lahan/input', 'PenggunaanlahanController@store');
+    Route::post('/penggunaan_lahan/update', 'PenggunaanlahanController@update');
+    Route::get('/penggunaan_lahan/hapus/{id}', 'PenggunaanlahanController@destroy');
+    Route::get('/getdatapenggunaanlahan/{id}', 'PenggunaanlahanController@getdatapenggunaanlahan');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:Pegawai Kantor']], function () {

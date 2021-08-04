@@ -48,11 +48,11 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Luas Penggunaan Lahan</label>
-                        <input type="number" class="form-control" name="luas_penggunaan_lahan" value="{{ old('luas_penggunaan_lahan') }}"
-                            placeholder="Masukkan Luas Penggunaan Lahan ...">
-                        <p style="color:red ; font-size: 12px">* Dalam Hektar</p>
-                        @error('luas_penggunaan_lahan')
+                        <label for="message-text" class="col-form-label">Nilai Hasil Produksi</label>
+                        <input type="float" class="form-control" name="nilai_hasil_produksi" value="{{ old('nilai_hasil_produksi') }}"
+                            placeholder="Masukkan Nilai Hasil Produksi ...">
+                        <p style="color:red ; font-size: 12px">* Dalam Ton</p>
+                        @error('nilai_hasil_produksi')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}
                             </div>
