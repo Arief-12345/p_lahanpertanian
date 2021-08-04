@@ -16,6 +16,11 @@
                                 <option value="{{ $kec->id }}" {{ old('kecamatan_id') ? 'selected' : '' }}>
                                     {{ $kec->nama_kecamatan }}</option>
                             @endforeach
+                            @error('kecamatan_id')
+                                <div class="text-danger ml-3 mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </select>
                     </div>
                     <div class="form-group">

@@ -8,23 +8,28 @@
             <div class="modal-body">
                 <form action="{{ url('/kelola_produksi/update') }}" method="POST">
                     {{ csrf_field() }}
-                    <input type="hidden" id="url_getdata" name="url_getdata" value="{{url('getdataproduksi/')}}">
+                    <input type="hidden" id="url_getdata" name="url_getdata" value="{{ url('getdataproduksi/') }}">
                     <input type="hidden" id="id" name="id" value="">
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Komoditi</label>
                         <select class="form-control" name="komoditi_id" id="komoditi_id">
                             <option value="">-- Pilih Komoditi --</option>
-                            @foreach ( $komoditi as $kom )
-                                <option value="{{$kom->id}}">{{$kom->nama_komoditi}}</option>
+                            @foreach ($komoditi as $kom)
+                                <option value="{{ $kom->id }}">{{ $kom->nama_komoditi }}</option>
                             @endforeach
                         </select>
+                        @error('kecamatan_id')
+                            <div class="text-danger ml-3 mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Kecamatan</label>
                         <select class="form-control" name="kecamatan_id" id="kecamatan_id">
                             <option value="">-- Pilih Kecamatan --</option>
-                            @foreach ( $kecamatan as $kec )
-                                <option value="{{$kec->id}}">{{$kec->nama_kecamatan}}</option>
+                            @foreach ($kecamatan as $kec)
+                                <option value="{{ $kec->id }}">{{ $kec->nama_kecamatan }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -40,8 +45,8 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Jumlah Produksi</label>
-                        <input type="text" class="form-control" name="jmlh_produksi" id="jmlh_produksi" value="{{ old('jmlh_produksi') }}"
-                            placeholder="Masukkan Jumlah Produksi ...">
+                        <input type="text" class="form-control" name="jmlh_produksi" id="jmlh_produksi"
+                            value="{{ old('jmlh_produksi') }}" placeholder="Masukkan Jumlah Produksi ...">
                         @error('jmlh_produksi')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}`
@@ -50,9 +55,10 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Nilai Hasil Produksi</label>
-                        <input type="number" class="form-control" name="nilai_hasil_produksi" id="nilai_hasil_produksi" value="{{ old('nilai_hasil_produksi') }}"
+                        <input type="number" class="form-control" name="nilai_hasil_produksi" id="nilai_hasil_produksi"
+                            value="{{ old('nilai_hasil_produksi') }}"
                             placeholder="Masukkan Nilai Hasil Produksi ...">
-                            <p style="color:red ; font-size: 12px">* Dalam Ton</p>
+                        <p style="color:red ; font-size: 12px">* Dalam Ton</p>
                         @error('nilai_hasil_produksi')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}
@@ -69,27 +75,26 @@
     </div>
 </div>
 <script>
-    function getdata(id)
-        {
-            console.log(id)
-            var url = $('#url_getdata').val() + '/' + id
-            // var url = $('#url_getdataa').val() + '/' + id
-            // var url = $('#url_getdata_hvps_v').val() + '/' + id
-            console.log(url);
-    
-            $.ajax({
-                url: url,
-                cache: false,
-                success: function(response){
-                    console.log(response);
-                    
-                    $('#id').val(response.id);
-                    $('#komoditi_id').val(response.komoditi_id);
-                    $('#kecamatan_id').val(response.kecamatan_id);
-                    $('#tahun').val(response.tahun);
-                    $('#jmlh_produksi').val(response.jmlh_produksi);
-                    $('#nilai_hasil_produksi').val(response.nilai_hasil_produksi);
-                }
-            });    
-        }
-    </script>
+    function getdata(id) {
+        console.log(id)
+        var url = $('#url_getdata').val() + '/' + id
+        // var url = $('#url_getdataa').val() + '/' + id
+        // var url = $('#url_getdata_hvps_v').val() + '/' + id
+        console.log(url);
+
+        $.ajax({
+            url: url,
+            cache: false,
+            success: function(response) {
+                console.log(response);
+
+                $('#id').val(response.id);
+                $('#komoditi_id').val(response.komoditi_id);
+                $('#kecamatan_id').val(response.kecamatan_id);
+                $('#tahun').val(response.tahun);
+                $('#jmlh_produksi').val(response.jmlh_produksi);
+                $('#nilai_hasil_produksi').val(response.nilai_hasil_produksi);
+            }
+        });
+    }
+</script>
