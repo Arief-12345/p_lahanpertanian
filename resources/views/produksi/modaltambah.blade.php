@@ -17,6 +17,11 @@
                                     {{ $kom->nama_komoditi }}</option>
                             @endforeach
                         </select>
+                        @error('komoditi_id')
+                            <div class="text-danger ml-3 mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Kecamatan</label>
