@@ -12,16 +12,17 @@
                         <label for="message-text" class="col-form-label">Kecamatan</label>
                         <select class="form-control" name="kecamatan_id" id="">
                             <option value="">-- Pilih Kecamatan --</option>
-                            @foreach ( $kecamatan as $kec )
-                                <option value="{{$kec->id}}">{{$kec->nama_kecamatan}}</option>
+                            @foreach ($kecamatan as $kec)
+                                <option value="{{ $kec->id }}" {{ old('kecamatan_id') ? 'selected' : '' }}>
+                                    {{ $kec->nama_kecamatan }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Luas Lahan Kosong</label>
-                        <input type="number" class="form-control" name="luas_lahan_kosong" value="{{ old('luas_lahan_kosong') }}"
-                            placeholder="Masukkan Luas Lahan Kosong ...">
-                            <p style="color:red ; font-size: 12px">* Dalam Satuan Hektar (Ha)</p>
+                        <input type="number" class="form-control" name="luas_lahan_kosong"
+                            value="{{ old('luas_lahan_kosong') }}" placeholder="Masukkan Luas Lahan Kosong ...">
+                        <p style="color:red ; font-size: 12px">* Dalam Satuan Hektar (Ha)</p>
                         @error('luas_lahan_kosong')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}
