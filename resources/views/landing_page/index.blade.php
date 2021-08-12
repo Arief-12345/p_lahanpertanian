@@ -63,7 +63,7 @@
                 <li><a class="smoothscroll" href="#download" title="download">Download</a></li>
             </ul>
 
-            <a href="{{ url('/login') }}" title="sign-up" class="button button-primary cta">Login</a>
+            {{-- <a href="{{ url('/login') }}" title="sign-up" class="button button-primary cta">Login</a> --}}
         </nav>
 
         <a class="header-menu-toggle" href="#"><span>Menu</span></a>
