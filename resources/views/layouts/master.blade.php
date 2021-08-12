@@ -121,14 +121,14 @@
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_penggunaan_lahan')">
                     <a href="{{ url('/kelola_penggunaan_lahan') }}"><em class="fa fa-clone">&nbsp;</em> Kelola
-                     Penggunaan Lahan</a>
+                        Penggunaan Lahan</a>
                 </li>
             @endif
 
             @if (auth()->user()->role == 'Pegawai Kantor')
                 <li class="@yield('aktif_perhitungan_luas_lahan')">
-                    <a href="{{ url('/perhitungan_luas_lahan') }}"><em class="fa fa-clone">&nbsp;</em> Perhitungan
-                        Luas Lahan</a>
+                    <a href="{{ url('/perhitungan') }}"><em class="fa fa-clone">&nbsp;</em>
+                        Perhitungan</a>
                 </li>
             @endif
 

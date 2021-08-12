@@ -69,6 +69,8 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function () {
     Route::post('/penggunaan_lahan/update', 'PenggunaanlahanController@update');
     Route::get('/penggunaan_lahan/hapus/{id}', 'PenggunaanlahanController@destroy');
     Route::get('/getdatapenggunaanlahan/{id}', 'PenggunaanlahanController@getdatapenggunaanlahan');
+
+    Route::get('/perhitungan', 'PerhitunganController@index');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:Pegawai Kantor']], function () {

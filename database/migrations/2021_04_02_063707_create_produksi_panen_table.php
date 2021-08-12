@@ -19,7 +19,6 @@ class CreateProduksiPanenTable extends Migration
             $table->foreignId('komoditi_id');
             $table->integer('tahun');
             $table->integer('jmlh_produksi');
-            $table->float('nilai_hasil_produksi')->nullable();
             $table->timestamps();
         });
     }
