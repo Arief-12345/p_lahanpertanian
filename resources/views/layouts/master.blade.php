@@ -126,7 +126,7 @@
             @endif
 
             @if (auth()->user()->role == 'Pegawai Kantor')
-                <li class="@yield('aktif_perhitungan_luas_lahan')">
+                <li class="@yield('aktif_perhitungan')">
                     <a href="{{ url('/perhitungan') }}"><em class="fa fa-clone">&nbsp;</em>
                         Perhitungan</a>
                 </li>

@@ -9,70 +9,82 @@
                 </div>
                 <div class="panel-body">
                     <div class="row" style="margin-left: 10px; margin-top: 10px">
-                        <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#tambah"><i
-                                class="fa fa-user-plus"></i> Tambah</button> <br>
-                    </div>
-                    {{-- @include('penggunaan_lahan/modaltambah') --}}
-                    <div class="row" style="margin-top: 20px; margin-left: 10px; margin-right: 10px">
-                        <table class="table" id="datatable">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Nama Kecamatan</th>
-                                    <th scope="col">Luas Penggunaan Lahan</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{-- @foreach ($data as $datas)
-                                    <tr>
-                                        <th scope="row">{{ $loop->iteration }}</th>
-                                        <td>{{ $datas->kecamatan->nama_kecamatan }}</td>
-                                        <td>{{ $datas->luas_penggunaan_lahan . ' Hektar' }}</td>
-                                        <td>
-                                            <button class="btn btn-success btn-md" onclick="getdata({{ $datas->id }})"
-                                                data-toggle="modal" data-target="#edit">Edit</button>
-                                            <a href="#" class="btn btn-danger btn-md hapus"
-                                                id="{{ $datas->id }}">Hapus</a>
-                                        </td>
-                                    </tr>
+                        <div class="col-md-2">
+                            <p>Filter</p>
+                        </div>
+                        <form action="/perhitungan" method="get">
+                        <div class="col-md-2">
+                            <select class="form-control" name="tahun" id="">
+                                <option value="">-- Pilih Tahun --</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                            </select>
+                            @error('tahun')
+                                <div class="text-danger ml-3 mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-control" name="kecamatan" id="">
+                                <option value="">-- Pilih Kecamatan --</option>
+                                @foreach ($kecamatan as $kec)
+                                    <option value="{{ $kec->id }}" {{ old('kecamatan_id') ? 'selected' : '' }}>
+                                        {{ $kec->nama_kecamatan }}</option>
                                 @endforeach
-                                @include('penggunaan_lahan/modaledit') --}}
-                            </tbody>
-                        </table>
+                            </select>
+                            @error('kecamatan')
+                                <div class="text-danger ml-3 mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-control" name="komoditi" id="">
+                                <option value="">-- Pilih Komoditi --</option>
+                                @foreach ($komoditi as $kom)
+                                    <option value="{{ $kom->id }}" {{ old('komoditi_id') ? 'selected' : '' }}>
+                                        {{ $kom->nama_komoditi }}</option>
+                                @endforeach
+                            </select>
+                            @error('komoditi')
+                                <div class="text-danger ml-3 mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" style="height: 35px" name="provitas" placeholder="Masukkan Provitas ...">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-md btn-success" type="submit">Pilih</button>
+                        </div>
+                    </form>
+                    <table class="table" id="datatable">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Kecamatan</th>
+                                <th scope="col">Tahun</th>
+                                <th scope="col">Jenis Komoditi</th>
+                                <th scope="col">Luas Penggunaan Lahan</th>
+                                <th scope="col">Jumlah Produksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>{{$kecamatannn}}</td>
+                                <td>{{$tahunn}}</td>
+                                <td>{{$komoditii}}</td>
+                                <td>{{$luas_penggunaan_lahan}}</td>
+                                <td>{{$format_perhitungan}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $('.delete').click(function() {
-            var Id = $(this).attr('user-id');
-            alert(Id);
-        });
-    </script>
-@endsection
-@section('footer')
-
-    <script>
-        $('.hapus').click(function() {
-            var Id = $(this).attr('id');
-            var Jenis = $(this).attr('jenis');
-            Swal.fire({
-                    title: 'Yakin?',
-                    text: "Mau Hapus Data Dengan Id " + Id + "?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya',
-                })
-                .then((result) => {
-                    console.log(result);
-                    if (result.value) {
-                        window.location = "/penggunaan_lahan/hapus/" + Id + "";
-                    }
-                });
-        });
-    </script>
 @endsection
