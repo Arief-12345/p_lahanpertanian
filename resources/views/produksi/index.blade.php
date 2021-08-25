@@ -21,7 +21,6 @@
                             <th scope="col">Nama Kecamatan</th>
                             <th scope="col">Tahun</th>
                             <th scope="col">Jumlah Produksi</th>
-                            <th scope="col">Nilai Hasil Produksi</th>
                             <th scope="col">Aksi</th>
                           </tr>
                         </thead>
@@ -32,8 +31,7 @@
                                 <td>{{ $datas->komoditi->nama_komoditi }}</td>
                                 <td>{{ $datas->kecamatan->nama_kecamatan }}</td>
                                 <td>{{ $datas->tahun }}</td>
-                                <td>{{ $datas->jmlh_produksi }}</td>
-                                <td>{{ $datas->nilai_hasil_produksi . " Ton" }}</td>
+                                <td>{{ $datas->jmlh_produksi . " Ton" }}</td>
                                 <td>
                                     <button class="btn btn-success btn-md" onclick="getdata({{$datas->id}})" data-toggle="modal" data-target="#edit">Edit</button>
                                     <a href="#" class="btn btn-danger btn-md hapus" jenis="{{$datas->jenis_produksi}}" id="{{ $datas->id }}">Hapus</a>

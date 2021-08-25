@@ -19,6 +19,7 @@ class ProduksiController extends Controller
         $data = Produksi::all();
         $kecamatan = Kecamatan::all();
         $komoditi = Komoditihasilpanen::all();
+        
         return view('produksi.index', compact('data', 'kecamatan', 'komoditi'));
     }
 
@@ -46,7 +47,6 @@ class ProduksiController extends Controller
             'komoditi_id' => 'required',
             'tahun' => 'required',
             'jmlh_produksi' => 'required',
-            'nilai_hasil_produksi' => 'required',
         ]);
 
         $tambah_produksi = Produksi::create($request->all());
@@ -89,7 +89,6 @@ class ProduksiController extends Controller
             'komoditi_id' => 'required',
             'tahun' => 'required',
             'jmlh_produksi' => 'required',
-            'nilai_hasil_produksi' => 'required',
         ]);
 
         $update = Produksi::find($request->id)->update($request->all());

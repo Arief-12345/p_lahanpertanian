@@ -47,21 +47,10 @@
                         <label for="message-text" class="col-form-label">Jumlah Produksi</label>
                         <input type="text" class="form-control" name="jmlh_produksi" id="jmlh_produksi"
                             value="{{ old('jmlh_produksi') }}" placeholder="Masukkan Jumlah Produksi ...">
+                        <p style="color:red ; font-size: 12px">* Dalam Ton</p>
                         @error('jmlh_produksi')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}`
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Nilai Hasil Produksi</label>
-                        <input type="number" class="form-control" name="nilai_hasil_produksi" id="nilai_hasil_produksi"
-                            value="{{ old('nilai_hasil_produksi') }}"
-                            placeholder="Masukkan Nilai Hasil Produksi ...">
-                        <p style="color:red ; font-size: 12px">* Dalam Ton</p>
-                        @error('nilai_hasil_produksi')
-                            <div class="text-danger ml-3 mt-2">
-                                {{ $message }}
                             </div>
                         @enderror
                     </div>
@@ -93,7 +82,6 @@
                 $('#kecamatan_id').val(response.kecamatan_id);
                 $('#tahun').val(response.tahun);
                 $('#jmlh_produksi').val(response.jmlh_produksi);
-                $('#nilai_hasil_produksi').val(response.nilai_hasil_produksi);
             }
         });
     }
