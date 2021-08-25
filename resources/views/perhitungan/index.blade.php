@@ -73,12 +73,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>{{$kecamatannn}}</td>
-                                <td>{{$tahunn}}</td>
-                                <td>{{$komoditii}}</td>
-                                <td>{{$luas_penggunaan_lahan}}</td>
-                                <td>{{$format_perhitungan}}</td>
+                                
                             </tr>
                         </tbody>
                     </table>
