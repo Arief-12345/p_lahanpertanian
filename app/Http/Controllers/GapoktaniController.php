@@ -17,6 +17,7 @@ class GapoktaniController extends Controller
     {
         $data = Gapoktani::all();
         $kecamatan = Kecamatan::all();
+        
         return view('gapoktani.index', compact('data', 'kecamatan'));
     }
 

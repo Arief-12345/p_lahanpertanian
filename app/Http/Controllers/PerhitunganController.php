@@ -32,12 +32,14 @@ class PerhitunganController extends Controller
            $perhitungan = $luas_penggunaan_lahan * $provitas / 10;
            $format_perhitungan = number_format($perhitungan);
         } else {
+            $tahunn = '';
         }
+        
         
         if ($request->tahun != null && $request->kecamatan != null && $request->provitas != null && $request->komoditi != null) {
             return view('perhitungan.index', compact('kecamatan', 'komoditi', 'kecamatannn', 'luas_penggunaan_lahan', 'tahunn', 'komoditii', 'format_perhitungan'));
         } else {
-            return view('perhitungan.index', compact('kecamatan', 'komoditi'));
+            return view('perhitungan.index', compact('kecamatan', 'komoditi', 'tahunn'));
         }
         
     }

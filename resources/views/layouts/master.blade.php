@@ -70,7 +70,7 @@
             </div>
         </form>
         <ul class="nav menu">
-            <li>
+            <li class="@yield('aktif_dashboard')">
                 <a href="{{ url('/home') }}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a>
             </li>
 
@@ -86,21 +86,21 @@
 
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_data_gapoktani')">
-                    <a href="{{ url('/kelola_gapoktani') }}"><em class="fa fa-bar-chart">&nbsp;</em> Kelola
+                    <a href="{{ url('/kelola_gapoktani') }}"><em class="fa fa-address-card">&nbsp;</em> Kelola
                         Gapoktani</a>
                 </li>
             @endif
 
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_data_produksi')">
-                    <a href="{{ url('/kelola_produksi') }}"><em class="fa fa-toggle-off">&nbsp;</em> Kelola
+                    <a href="{{ url('/kelola_produksi') }}"><em class="fa fa-balance-scale">&nbsp;</em> Kelola
                         Produksi</a>
                 </li>
             @endif
 
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_pemetaan')">
-                    <a href="{{ url('/kelola_pemetaan') }}"><em class="fa fa-bar-chart">&nbsp;</em>Pemetaan</a>
+                    <a href="{{ url('/kelola_pemetaan') }}"><em class="fa fa-globe">&nbsp;</em>Pemetaan</a>
                 </li>
             @endif
 
@@ -113,7 +113,7 @@
 
             @if (auth()->user()->role == 'Admin')
                 <li class="@yield('aktif_kelola_data_komoditi_hasil_panen')">
-                    <a href="{{ url('/kelola_data_komoditi_hasil_panen') }}"><em class="fa fa-clone">&nbsp;</em>
+                    <a href="{{ url('/kelola_data_komoditi_hasil_panen') }}"><em class="fa fa-leaf">&nbsp;</em>
                         Kelola Komoditi Hasil Panen</a>
                 </li>
             @endif
