@@ -57,7 +57,6 @@
             },
             xAxis: {
                 categories: [
-                    // {!! json_encode($categories) !!}, {!! json_encode($categories) !!},
                     2018, 2019
                 ],
                 crosshair: true
@@ -84,7 +83,9 @@
             },
             series: [{
                 name: 'Jumlah Produksi',
-                data: [{!! json_encode($data1) !!}, {!! json_encode($data2) !!}]
+                data: [
+                    {!! json_encode($data1) !!}, {!! json_encode($data2) !!}
+                    ]
             }]
         });
     </script>
