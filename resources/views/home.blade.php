@@ -1,19 +1,47 @@
 @extends('layouts.master')
 @section('aktif_dashboard', 'active')
 @section('content')
-<div class="row">
+    <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3>Dashboard</h3>
                 </div>
                 <div class="panel-body">
-                    <div id="chart">
+                    <div class="row">
+                        <form action="/home" method="get">
+                            @csrf
+                            <div class="pull-right">
+                                <div class="col-md-4">
+                                    <select class="form-control" name="kecamatan" id="">
+                                        <option value="">-- Pilih Kecamatan --</option>
+                                        @foreach ($kecamatan as $kec)
+                                            <option value="{{ $kec->id }}">{{ $kec->nama_kecamatan }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="komoditi" id="">
+                                        <option value="">-- Pilih Komoditi --</option>
+                                        @foreach ($komoditi as $kom)
+                                            <option value="{{ $kom->id }}">{{ $kom->nama_komoditi }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-primary" type="submit">Pilih</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </div>
+                    <div class="row">
+                        <div id="chart">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
 
@@ -29,7 +57,7 @@
             },
             xAxis: {
                 categories: [
-                    // {!! json_encode($categories) !!}, 2019
+                    // {!! json_encode($categories) !!}, {!! json_encode($categories) !!},
                     2018, 2019
                 ],
                 crosshair: true
