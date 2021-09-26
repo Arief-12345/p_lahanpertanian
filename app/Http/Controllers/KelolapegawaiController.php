@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Pegawai;
 use Illuminate\Http\Request;
+use App\Pengguna;
 
 class KelolapegawaiController extends Controller
 {

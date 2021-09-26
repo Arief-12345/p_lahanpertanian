@@ -14,7 +14,7 @@
                             <div class="pull-right">
                                 <div class="col-md-4">
                                     <select class="form-control" name="kecamatan" id="">
-                                        <option value="">-- Pilih Kecamatan --</option>
+                                        <option value="{{ old('kecamatan') }}">-- Pilih Kecamatan --</option>
                                         @foreach ($kecamatan as $kec)
                                             <option value="{{ $kec->id }}">{{ $kec->nama_kecamatan }}</option>
                                         @endforeach
@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <select class="form-control" name="komoditi" id="">
-                                        <option value="">-- Pilih Komoditi --</option>
+                                        <option value="{{ old('komoditi') }}">-- Pilih Komoditi --</option>
                                         @foreach ($komoditi as $kom)
                                             <option value="{{ $kom->id }}">{{ $kom->nama_komoditi }}</option>
                                         @endforeach
@@ -85,7 +85,7 @@
                 name: 'Jumlah Produksi',
                 data: [
                     {!! json_encode($data1) !!}, {!! json_encode($data2) !!}
-                    ]
+                ]
             }]
         });
     </script>

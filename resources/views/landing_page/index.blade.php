@@ -56,11 +56,22 @@
 
         <nav id="header-nav-wrap">
             <ul class="header-main-nav">
-                <li class="current"><a class="smoothscroll" href="#home" title="home">Home</a></li>
-                <li><a class="smoothscroll" href="#about" title="about">About</a></li>
-                <li><a class="smoothscroll" href="#pricing" title="pricing">Pricing</a></li>
-                <li><a class="smoothscroll" href="#testimonials" title="testimonials">Testimonials</a></li>
-                <li><a class="smoothscroll" href="#download" title="download">Download</a></li>
+                <li class="current"><a class="smoothscroll" href="#home" title="home">Beranda</a></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Pemetaan
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a href="#" class="dropdown-item">Komoditi Panen</a>
+                            <a href="#" class="dropdown-item">Potensi Lahan Pertanian</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a class="" href=" #" title="">Informasi</a></li>
+                <li><a class="smoothscroll" href="#testimonials" title="testimonials">Grafik</a></li>
+                <li><a class="smoothscroll" href="#about" title="about">Tentang</a></li>
             </ul>
 
             {{-- <a href="{{ url('/login') }}" title="sign-up" class="button button-primary cta">Login</a> --}}
