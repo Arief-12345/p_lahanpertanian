@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ asset('dazzle/css/base.css') }}">
     <link rel="stylesheet" href="{{ asset('dazzle/css/vendor.css') }}">
     <link rel="stylesheet" href="{{ asset('dazzle/css/main.css') }}">
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
 
     <!-- script
    ================================================== -->
@@ -41,7 +43,57 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
+    <style>
+        /* Style The Dropdown Button */
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 2px, 2px, 2px, 2px;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+        }
 
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 0px 5px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+    </style>
 </head>
 
 <body id="top">
@@ -59,19 +111,25 @@
                 <li class="current"><a class="smoothscroll" href="#home" title="home">Beranda</a></li>
                 <li>
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Pemetaan
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a href="#" class="dropdown-item">Komoditi Panen</a>
-                            <a href="#" class="dropdown-item">Potensi Lahan Pertanian</a>
+                        <button class="dropbtn" type="button">Pemetaan &#9660;</button>
+                        <div class="dropdown-content">
+                            <a href="#" style="color: black;">Komoditi Panen</a>
+                            <a href="#" style="color: black">Potensi Lahan Pertanian</a>
                         </div>
                     </div>
                 </li>
-                <li><a class="" href=" #" title="">Informasi</a></li>
-                <li><a class="smoothscroll" href="#testimonials" title="testimonials">Grafik</a></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn" type="button">Grafik &#9660;</button>
+                        <div class="dropdown-content">
+                            @foreach ($data as $komoditi)
+                                <a href="#" style="color: black;">{{ $komoditi->nama_komoditi }}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                </li>
                 <li><a class="smoothscroll" href="#about" title="about">Tentang</a></li>
+                <li><a class="smoothscroll" href="#download" title="download">Informasi</a></li>
             </ul>
 
             {{-- <a href="{{ url('/login') }}" title="sign-up" class="button button-primary cta">Login</a> --}}
@@ -125,13 +183,13 @@
         <div class="row about-intro">
 
             <div class="col-four">
-                <h1 class="intro-header" data-aos="fade-up">About Our App</h1>
+                <h1 class="intro-header" data-aos="fade-up">Tentang Aplikasi Kami</h1>
             </div>
             <div class="col-eight">
                 <p class="lead" data-aos="fade-up">
-                    Excepteur enim magna veniam labore veniam sint. Ex aliqua esse proident ullamco voluptate. Nisi nisi
-                    nisi aliqua eiusmod dolor dolor proident deserunt occaecat elit Lorem reprehenderit. Id culpa veniam
-                    ex aliqua magna elit pariatur do nulla. Excepteur enim magna veniam labore veniam sint.
+                    Sistem Informasi Geografis pemetaan lahan dan komoditi hasil panen kabupaten Sanggau
+                    merupakan sebuah sistem yang dapat memetakan komoditi hasil panen dan potensi lahan
+                    pertanian di setiap kecamatan di kabupaten Sanggau.
                 </p>
             </div>
 
@@ -143,16 +201,15 @@
 
                 <div class="bgrid feature" data-aos="fade-up">
 
-                    <span class="icon"><i class="icon-window"></i></span>
+                    <span class="icon"><i class="icon-users"></i></span>
 
                     <div class="service-content">
 
-                        <h3>Fully Resposive</h3>
+                        <h3>Gapoktani</h3>
 
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit.
+                        <p>Gapoktani merupakan kepanjangan dari gabyungan kelompok petani yang
+                            mempunyai fungsi untuk mengelola lahan pertanian yang ada di wilayah mereka,
+                            gapoktani mempunyai 1 orang ketua dan beberapa anggota.
                         </p>
 
                     </div>
@@ -161,15 +218,14 @@
 
                 <div class="bgrid feature" data-aos="fade-up">
 
-                    <span class="icon"><i class="icon-image"></i></span>
+                    <span class="icon"><i class="icon-leaf"></i></span>
 
                     <div class="service-content">
-                        <h3>Retina Ready</h3>
+                        <h3>Komoditi Hasil Panen</h3>
 
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit.
+                        <p>Komoditi hasil panen merupakan hasil panen yang berasal lahan pertanian
+                            contoh komoditi yang paling umum adalah padi ada juga komoditi yang
+                            bernama palawija seperti jagung, ubi, ketela, dan umbi-umbian.
                         </p>
 
 
@@ -179,65 +235,15 @@
 
                 <div class="bgrid feature" data-aos="fade-up">
 
-                    <span class="icon"><i class="icon-paint-brush"></i></span>
+                    <span class="icon"><i class="fa fa-map-o"></i></span>
 
                     <div class="service-content">
-                        <h3>Stylish Design</h3>
+                        <h3>Potensi Lahan Pertanian</h3>
 
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit.
-                        </p>
+                        <p>Potensi lahan pertanian merupakan peluang yang dimiliki suatu lahan kosong
+                            yang dapat diubah menjadi lahan pertanian yang baru, yang dapat menghasilkan
+                            komoditi panen.
 
-                    </div>
-
-                </div> <!-- /bgrid -->
-
-                <div class="bgrid feature" data-aos="fade-up">
-
-                    <span class="icon"><i class="icon-file"></i></span>
-
-                    <div class="service-content">
-                        <h3>Clean Code</h3>
-
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit.
-                        </p>
-
-                    </div>
-
-                </div> <!-- /bgrid -->
-
-                <div class="bgrid feature" data-aos="fade-up">
-
-                    <span class="icon"><i class="icon-sliders"></i></span>
-
-                    <div class="service-content">
-                        <h3>Easy To Customize</h3>
-
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit.
-                        </p>
-                    </div>
-
-                </div> <!-- /bgrid -->
-
-                <div class="bgrid feature" data-aos="fade-up">
-
-                    <span class="icon"><i class="icon-gift"></i></span>
-
-                    <div class="service-content">
-                        <h3>Free of Charge</h3>
-
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit.
                         </p>
 
                     </div>
@@ -248,65 +254,12 @@
 
         </div> <!-- end about-features -->
 
-        <div class="row about-how">
-
-            <h1 class="intro-header" data-aos="fade-up">How The App Works?</h1>
-
-            <div class="about-how-content" data-aos="fade-up">
-                <div class="about-how-steps block-1-2 block-tab-full group">
-
-                    <div class="bgrid step" data-item="1">
-                        <h3>Sign-Up</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo.
-                        </p>
-                    </div>
-
-                    <div class="bgrid step" data-item="2">
-                        <h3>Upload</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo.
-                        </p>
-                    </div>
-
-                    <div class="bgrid step" data-item="3">
-                        <h3>Create</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo.
-                        </p>
-                    </div>
-
-                    <div class="bgrid step" data-item="4">
-                        <h3>Publish</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo.
-                        </p>
-                    </div>
-
-                </div>
-            </div> <!-- end about-how-content -->
-
-        </div> <!-- end about-how -->
-
-        <div class="row about-bottom-image">
-
-            <img src="images/app-screens-1200.png" srcset="images/app-screens-600.png 600w, 
-                        images/app-screens-1200.png 1200w, 
-                        images/app-screens-2800.png 2800w" sizes="(max-width: 2800px) 100vw, 2800px"
-                alt="App Screenshots" data-aos="fade-up">
-
-        </div> <!-- end about-bottom-image -->
-
     </section> <!-- end about -->
 
 
     <!-- pricing
     ================================================== -->
-    <section id="pricing">
+    {{-- <section id="pricing">
         <div class="row pricing-content">
 
             <div class="col-four pricing-intro">
@@ -372,12 +325,12 @@
             </div> <!-- end pricing-table -->
 
         </div> <!-- end pricing-content -->
-    </section> <!-- end pricing -->
+    </section> <!-- end pricing --> --}}
 
 
     <!-- Testimonials Section
     ================================================== -->
-    <section id="testimonials">
+    {{-- <section id="testimonials">
 
         <div class="row">
             <div class="col-twelve">
@@ -432,7 +385,7 @@
 
         </div> <!-- end flex-container -->
 
-    </section> <!-- end testimonials -->
+    </section> <!-- end testimonials --> --}}
 
 
     <!-- download
@@ -441,18 +394,14 @@
 
         <div class="row">
             <div class="col-full">
-                <h1 class="intro-header" data-aos="fade-up">Download Our App Today!</h1>
-
-                <p class="lead" data-aos="fade-up">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                </p>
-
-                <ul class="download-badges">
-                    <li><a href="#" title="" class="badge-appstore" data-aos="fade-up">App Store</a></li>
-                    <li><a href="#" title="" class="badge-googleplay" data-aos="fade-up">Play Store</a></li>
-                </ul>
+                <h1 class="intro-header" data-aos="fade-up">Peta Dinas Pertanian Sanggau</h1>
+                {{-- <div class="row" style=""> --}}
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510695.599836033!2d110.31108543281248!3d0.12133630000000165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fd8e406a07d061%3A0xcebebe31addbe702!2sDinas%20Pertanian%20Sanggau!5e0!3m2!1sid!2sid!4v1632667665714!5m2!1sid!2sid"
+                    width="152%" height="500" style="border:0; padding-right: 0px; margin-left: -200px"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+                {{-- </div> --}}
 
             </div>
         </div>
@@ -472,22 +421,14 @@
                     <div class="footer-logo"></div>
 
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta
-                        dapibus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
+                        Sistem Informasi Geografis pemetaan lahan dan komoditi hasil panen kabupaten Sanggau
+                        merupakan sebuah sistem yang dapat memetakan komoditi hasil panen dan potensi lahan
+                        pertanian di setiap kecamatan di kabupaten Sanggau.
                     </p>
 
                     <ul class="footer-social-list">
                         <li>
                             <a href="#"><i class="fa fa-facebook-square"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-behance"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-instagram"></i></a>
@@ -499,58 +440,46 @@
 
                 <div class="col-three md-1-3 tab-1-2 mob-full footer-contact">
 
-                    <h4>Contact</h4>
+                    <h4>KONTAK KAMI</h4>
 
                     <p>
-                        1600 Amphitheatre Parkway<br>
-                        Mountain View, CA <br>
-                        94043 US<br>
+                        Dinas Pertanian Sanggau Jl. Jend. Sudirman, Ilir Kota, Kec.<br>
+                        Kapuas, Kabupaten Sanggau, <br>
+                        Kalimantan Barat 78516<br>
                     </p>
 
                     <p>
-                        someone@dazzlesite.com <br>
-                        Phone: (+63) 555 1212 <br>
-                        Fax: (+63) 555 0100
+                        distansanggau@example.com <br>
+                        Phone: (0561)710282 <br>
+
                     </p>
 
                 </div> <!-- end footer-contact -->
 
                 <div class="col-two md-1-3 tab-1-2 mob-full footer-site-links">
 
-                    <h4>Site Links</h4>
+                    <h4>Link</h4>
 
                     <ul class="list-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Pemetaan</a></li>
+                        <li><a href="#">Grafik</a></li>
+                        <li><a href="#">Informasi</a></li>
+                        <li><a href="#">Tentang</a></li>
                     </ul>
 
                 </div> <!-- end footer-site-links -->
 
                 <div class="col-four md-1-2 tab-full footer-subscribe">
 
-                    <h4>Our Newsletter</h4>
+                    <h4>Kecamatan</h4>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <ul class="list-links">
+                        @foreach ($data1 as $kecamatan)
+                            <li><a href="#">{{ $kecamatan->nama_kecamatan }}</a></li>
+                        @endforeach
+                    </ul>
 
-                    <div class="subscribe-form">
-
-                        <form id="mc-form" class="group" novalidate="true">
-
-                            <input type="email" value="" name="EMAIL" class="email" id="mc-email"
-                                placeholder="Email Address" required="">
-
-                            <input type="submit" name="subscribe" value="Send">
-
-                            <label for="mc-email" class="subscribe-message"></label>
-
-                        </form>
-
-                    </div>
 
                 </div> <!-- end footer-subscribe -->
 
@@ -564,7 +493,7 @@
 
                 <div class="col-twelve">
                     <div class="copyright">
-                        <span>© Copyright Dazzle 2018.</span>
+                        <span>© Copyright Arif 2021.</span>
                         <span>Design by <a href="http://www.styleshout.com/">styleshout</a></span>
                     </div>
 
@@ -588,6 +517,15 @@
     <script src="{{ asset('dazzle/js/jquery-2.1.3.min.js') }}"></script>
     <script src="{{ asset('dazzle/js/plugins.js') }}"></script>
     <script src="{{ asset('dazzle/js/main.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 
 </body>
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Komoditihasilpanen;
+use App\Kecamatan;
 
 class LandingpageController extends Controller
 {
@@ -13,7 +15,10 @@ class LandingpageController extends Controller
      */
     public function index()
     {
-        //
+        $data = Komoditihasilpanen::all();
+        $data1 = Kecamatan::all();
+
+        return view('landing_page.index', compact('data','data1'));
     }
 
     /**
