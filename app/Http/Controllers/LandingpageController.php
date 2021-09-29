@@ -15,24 +15,23 @@ class LandingpageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function pemetaan_komoditi()
-    {
-        $data = Komoditihasilpanen::all();
-        $data1 = Kecamatan::all();
-        $komoditi = Komoditihasilpanen::all();
-        $produksi = Produksi::all();
-
-
-        return view('landing_page.pemetaan_komoditi', compact('data', 'data1', 'komoditi', 'produksi'));
-    }
-
     public function index()
     {
-        $data = Komoditihasilpanen::all();
-        $data1 = Kecamatan::all();
+        $komoditi = Komoditihasilpanen::all();
+        $kecamatan = Kecamatan::all();
 
-        return view('landing_page.index', compact('data', 'data1', 'produksi'));
+        return view('landing_page.index', compact('komoditi', 'kecamatan'));
     }
+
+    public function pemetaan_komoditi()
+    {
+        $komoditi = Komoditihasilpanen::all();
+        $produksi = Produksi::all();
+        $kecamatan = Kecamatan::all();
+
+        return view('landing_page.pemetaan_komoditi', compact('komoditi', 'produksi', 'kecamatan'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

@@ -194,7 +194,7 @@
                     <div class="dropdown">
                         <button class="dropbtn" type="button">Grafik &#9660;</button>
                         <div class="dropdown-content">
-                            @foreach ($data as $komoditi)
+                            @foreach ($komoditi as $komoditi)
                                 <a href="#" style="color: black;">{{ $komoditi->nama_komoditi }}</a>
                             @endforeach
                         </div>
@@ -323,7 +323,7 @@
                     <h4>Kecamatan</h4>
 
                     <ul class="list-links">
-                        @foreach ($data1 as $kecamatan)
+                        @foreach ($kecamatan as $kecamatan)
                             <li><a href="#">{{ $kecamatan->nama_kecamatan }}</a></li>
                         @endforeach
                     </ul>
