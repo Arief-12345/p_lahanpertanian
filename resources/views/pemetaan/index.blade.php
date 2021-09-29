@@ -12,7 +12,7 @@
                         <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#tambah"><i
                                 class="fa fa-user-plus"></i> Tambah</button> <br>
                     </div>
-                     @include('pemetaan/modaltambah') 
+                    @include('pemetaan/modaltambah')
                     <div class="row" style="margin-top: 20px; margin-left: 10px; margin-right: 10px">
                         <table class="table" id="datatable">
                             <thead>
@@ -87,15 +87,16 @@
         @foreach ($data as $datas)
             var data{{ $datas->id }} = L.layerGroup();
         @endforeach
-            var kecamatan = L.layerGroup();
+        var kecamatan = L.layerGroup();
         var map = L.map('map', {
             center: [0.2466385230005252, 110.50176394336441],
-            zoom: 8,
-            layers: [peta2, 
-            @foreach ($data as $datas)
-                data{{ $datas->id }},
-            @endforeach
-            kecamatan]
+            zoom: 9,
+            layers: [peta2,
+                @foreach ($data as $datas)
+                    data{{ $datas->id }},
+                @endforeach
+                kecamatan
+            ]
         });
 
         var baseMaps = {
@@ -107,7 +108,7 @@
 
         var overlayer = {
             @foreach ($data as $datas)
-            "{{ $datas->nama_kecamatan }}" : data{{ $datas->id }},
+                "{{ $datas->nama_kecamatan }}" : data{{ $datas->id }},
             @endforeach
         };
 
@@ -115,11 +116,11 @@
 
         @foreach ($data as $datas)
             L.geoJSON(<?= $datas->geojson ?>{
-                style: {
-                    color: 'white',
-                    fillColor: '{{$datas->warna}}',
-                    fillOpacity: 1.0,
-                },
+            style: {
+            color: 'white',
+            fillColor: '{{ $datas->warna }}',
+            fillOpacity: 1.0,
+            },
             }).addTo(data{{ $datas->id }}).bindPopup("{{ $datas->nama_kecamatan }}");
         @endforeach
     </script>

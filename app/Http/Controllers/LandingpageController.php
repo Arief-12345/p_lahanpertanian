@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Komoditihasilpanen;
 use App\Kecamatan;
+use App\Produksi;
 
 class LandingpageController extends Controller
 {
@@ -13,12 +14,24 @@ class LandingpageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function pemetaan_komoditi()
+    {
+        $data = Komoditihasilpanen::all();
+        $data1 = Kecamatan::all();
+        $komoditi = Komoditihasilpanen::all();
+        $produksi = Produksi::all();
+
+
+        return view('landing_page.pemetaan_komoditi', compact('data', 'data1', 'komoditi', 'produksi'));
+    }
+
     public function index()
     {
         $data = Komoditihasilpanen::all();
         $data1 = Kecamatan::all();
 
-        return view('landing_page.index', compact('data','data1'));
+        return view('landing_page.index', compact('data', 'data1', 'produksi'));
     }
 
     /**
@@ -28,7 +41,7 @@ class LandingpageController extends Controller
      */
     public function create()
     {
-        //
+    //
     }
 
     /**
@@ -39,7 +52,7 @@ class LandingpageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    //
     }
 
     /**
@@ -50,7 +63,7 @@ class LandingpageController extends Controller
      */
     public function show($id)
     {
-        //
+    //
     }
 
     /**
@@ -61,7 +74,7 @@ class LandingpageController extends Controller
      */
     public function edit($id)
     {
-        //
+    //
     }
 
     /**
@@ -73,7 +86,7 @@ class LandingpageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    //
     }
 
     /**
@@ -84,6 +97,6 @@ class LandingpageController extends Controller
      */
     public function destroy($id)
     {
-        //
+    //
     }
 }
