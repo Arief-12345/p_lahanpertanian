@@ -47,6 +47,7 @@ class ProduksiController extends Controller
             'komoditi_id' => 'required',
             'tahun' => 'required',
             'jmlh_produksi' => 'required',
+            'luas_panen' => 'required',
         ]);
 
         $tambah_produksi = Produksi::create($request->all());
@@ -89,6 +90,7 @@ class ProduksiController extends Controller
             'komoditi_id' => 'required',
             'tahun' => 'required',
             'jmlh_produksi' => 'required',
+            'luas_panen' => 'required',
         ]);
 
         $update = Produksi::find($request->id)->update($request->all());

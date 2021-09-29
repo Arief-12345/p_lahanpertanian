@@ -54,6 +54,17 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Luas Panen</label>
+                        <input type="text" class="form-control" name="luas_panen" id="luas_panen"
+                            value="{{ old('luas_panen') }}" placeholder="Masukkan Jumlah Produksi ...">
+                        <p style="color:red ; font-size: 12px">* Hektar</p>
+                        @error('luas_panen')
+                            <div class="text-danger ml-3 mt-2">
+                                {{ $message }}`
+                            </div>
+                        @enderror
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -82,6 +93,7 @@
                 $('#kecamatan_id').val(response.kecamatan_id);
                 $('#tahun').val(response.tahun);
                 $('#jmlh_produksi').val(response.jmlh_produksi);
+                $('#luas_panen').val(response.luas_panen);
             }
         });
     }

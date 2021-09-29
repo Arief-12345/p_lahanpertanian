@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Tahun</label>
                         <input type="number" class="form-control" name="tahun" value="{{ old('tahun') }}"
-                            placeholder="Masukkan Luas Lahan ...">
+                            placeholder="Masukkan Tahun ...">
                         @error('tahun')
                             <div class="text-danger ml-3 mt-2">
                                 {{ $message }}

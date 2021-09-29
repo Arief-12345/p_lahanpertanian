@@ -186,7 +186,7 @@
                         <button class="dropbtn" type="button">Pemetaan &#9660;</button>
                         <div class="dropdown-content">
                             <a href="{{ url('/pemetaan_komoditi') }}" style="color: black;">Komoditi Panen</a>
-                            <a href="{{ url('/pemetaan_potensi') }}" style="color: black">Potensi Lahan Pertanian</a>
+                            <a href="{{ url('/pemetaan_potensi_lahan') }}" style="color: black">Potensi Lahan Pertanian</a>
                         </div>
                     </div>
                 </li>

@@ -59,6 +59,17 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Luas Panen</label>
+                        <input type="number" class="form-control" name="luas_panen"
+                            value="{{ old('luas_panen') }}" placeholder="Masukkan Luas Panen ...">
+                        <p style="color:red ; font-size: 12px">* Dalam Hektar</p>
+                        @error('luas_panen')
+                            <div class="text-danger ml-3 mt-2">
+                                {{ $message }}`
+                            </div>
+                        @enderror
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

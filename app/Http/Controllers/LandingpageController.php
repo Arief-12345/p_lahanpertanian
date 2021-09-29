@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Komoditihasilpanen;
 use App\Kecamatan;
 use App\Produksi;
+use App\Potensilahanpertanian;
 
 class LandingpageController extends Controller
 {
@@ -23,13 +24,37 @@ class LandingpageController extends Controller
         return view('landing_page.index', compact('komoditi', 'kecamatan'));
     }
 
-    public function pemetaan_komoditi()
+    public function pemetaan_komoditi(Request $request)
     {
         $komoditi = Komoditihasilpanen::all();
-        $produksi = Produksi::all();
+        // $produksi = Produksi::all();
         $kecamatan = Kecamatan::all();
 
+        if ($request->komoditi != null && $request->tahun != null) {
+            $produksi = Produksi::where('komoditi_id', $request->komoditi)->where('tahun', $request->tahun)->get();
+        } elseif ($request->komoditi == null && $request->tahun == null) {
+            $produksi = Produksi::all();
+        } else {
+            $produksi = Produksi::all();
+        }
+        
+
         return view('landing_page.pemetaan_komoditi', compact('komoditi', 'produksi', 'kecamatan'));
+    }
+
+    public function pemetaan_potensi_lahan(Request $request)
+    {
+        $potensi = Potensilahanpertanian::all();
+        $komoditi = Komoditihasilpanen::all();
+        $kecamatan = Kecamatan::all();
+
+        if ($request->tahun != null) {
+            $potensi = Potensilahanpertanian::where('tahun', $request->tahun)->get();
+        }  else {
+            $potensi = Potensilahanpertanian::all();
+        }
+
+        return view('landing_page.pemetaan_potensi_lahan', compact('potensi', 'komoditi', 'kecamatan'));
     }
 
 

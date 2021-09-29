@@ -24,11 +24,13 @@ class PerhitunganController extends Controller
         // luas penggunaan lahan = pertahun
         // jmlh produksi = luas penggunaan lahan x provitas : 10
         if ($request->tahun != null && $request->kecamatan != null && $request->provitas != null && $request->komoditi != null) {
-           $luas_penggunaan_lahan = Penggunaanlahan::where('kecamatan_id', $request->kecamatan)->first()->luas_penggunaan_lahan;
+           $luas_panen = Penggunaanlahan::where('kecamatan_id', $request->kecamatan)->first()->luas_penggunaan_lahan;
            $kecamatannn = Penggunaanlahan::where('kecamatan_id', $request->kecamatan)->first()->kecamatan->nama_kecamatan;
            $tahunn = $request->tahun;
            $komoditii = Komoditihasilpanen::where('id', $request->komoditi)->first()->nama_komoditi;
            $provitas = $request->provitas;
+
+           // Rumus
            $perhitungan = $luas_penggunaan_lahan * $provitas / 10;
            $format_perhitungan = number_format($perhitungan);
         } else {

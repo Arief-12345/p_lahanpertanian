@@ -19,6 +19,7 @@ class CreateProduksiPanenTable extends Migration
             $table->foreignId('komoditi_id');
             $table->integer('tahun');
             $table->integer('jmlh_produksi');
+            $table->integer('luas_panen');
             $table->timestamps();
         });
     }

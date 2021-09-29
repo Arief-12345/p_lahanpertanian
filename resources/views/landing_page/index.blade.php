@@ -114,7 +114,7 @@
                         <button class="dropbtn" type="button">Pemetaan &#9660;</button>
                         <div class="dropdown-content">
                             <a href="{{ url('/pemetaan_komoditi') }}" style="color: black;">Komoditi Panen</a>
-                            <a href="{{ url('/pemetaan_potensi') }}" style="color: black">Potensi Lahan Pertanian</a>
+                            <a href="{{ url('/pemetaan_potensi_lahan') }}" style="color: black">Potensi Lahan Pertanian</a>
                         </div>
                     </div>
                 </li>
@@ -122,7 +122,7 @@
                     <div class="dropdown">
                         <button class="dropbtn" type="button">Grafik &#9660;</button>
                         <div class="dropdown-content">
-                            @foreach ($data as $komoditi)
+                            @foreach ($komoditi as $komoditi)
                                 <a href="#" style="color: black;">{{ $komoditi->nama_komoditi }}</a>
                             @endforeach
                         </div>
@@ -475,7 +475,7 @@
                     <h4>Kecamatan</h4>
 
                     <ul class="list-links">
-                        @foreach ($data1 as $kecamatan)
+                        @foreach ($kecamatan as $kecamatan)
                             <li><a href="#">{{ $kecamatan->nama_kecamatan }}</a></li>
                         @endforeach
                     </ul>
