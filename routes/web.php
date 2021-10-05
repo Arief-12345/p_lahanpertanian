@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'LandingpageController@index');
 route::get('/pemetaan_komoditi', 'LandingpageController@pemetaan_komoditi');
 route::get('/pemetaan_potensi_lahan', 'LandingpageController@pemetaan_potensi_lahan');
+Route::get('/grafik', 'LandingpageController@grafik');
 
 Auth::routes();
 

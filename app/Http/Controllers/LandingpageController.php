@@ -42,6 +42,42 @@ class LandingpageController extends Controller
         return view('landing_page.pemetaan_komoditi', compact('komoditi', 'produksi', 'kecamatan'));
     }
 
+    public function grafik(Request $request)
+    {
+        $produksi_panen = Produksi::all();
+        $kecamatan = Kecamatan::all();
+        $komoditi = Komoditihasilpanen::all();
+        $categories = [];
+        //    return $categories = produksi::get()->tahun;
+        if ($request->kecamatan != null && $request->komoditi != null) {
+            foreach ($produksi_panen as $produksi) {
+                if ($produksi->where('tahun', 2018)->where('kecamatan_id', $request->kecamatan)->where('komoditi_id', $request->komoditi)->first() == null && $produksi->where('tahun', 2019)->where('kecamatan_id', $request->kecamatan)->where('komoditi_id', $request->komoditi)->first() == null) {
+                    $data1 = '';
+                    $data2 = '';
+                } elseif ($produksi->where('tahun', 2019)->where('kecamatan_id', $request->kecamatan)->where('komoditi_id', $request->komoditi)->first() == null) {
+                    $data1 = $produksi->where('tahun', 2018)->where('kecamatan_id', $request->kecamatan)->where('komoditi_id', $request->komoditi)->first()->jmlh_produksi;
+                    $data2 = '';
+                } elseif ($produksi->where('tahun', 2018)->where('kecamatan_id', $request->kecamatan)->where('komoditi_id', $request->komoditi)->first() == null) {
+                    $data1 = '';
+                    $data2 = $produksi->where('tahun', 2019)->where('kecamatan_id', $request->kecamatan)->where('komoditi_id', $request->komoditi)->first()->jmlh_produksi;
+                } else {
+                    $data1 = $produksi->where('tahun', 2018)->where('kecamatan_id', $request->kecamatan)->where('komoditi_id', $request->komoditi)->first()->jmlh_produksi;
+                    $data2 = $produksi->where('tahun', 2019)->where('kecamatan_id', $request->kecamatan)->where('komoditi_id', $request->komoditi)->first()->jmlh_produksi;
+                }
+
+                $categories = $produksi->tahun;
+            }
+        } else {
+            foreach ($produksi_panen as $produksi) {
+                $data1 = $produksi->where('tahun', '2018')->first()->jmlh_produksi;
+                $data2 = $produksi->where('tahun', '2019')->first()->jmlh_produksi;
+                $categories = $produksi->tahun;
+            }
+        }
+
+        return view('landing_page.grafik', compact('data1', 'data2', 'categories', 'kecamatan', 'komoditi'));
+    }
+
     public function pemetaan_potensi_lahan(Request $request)
     {
         $potensi = Potensilahanpertanian::all();

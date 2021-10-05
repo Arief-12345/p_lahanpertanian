@@ -191,14 +191,15 @@
                     </div>
                 </li>
                 <li>
-                    <div class="dropdown">
+                    <a  href="{{ url('/grafik') }}">Grafik</a>
+                    {{-- <div class="dropdown">
                         <button class="dropbtn" type="button">Grafik &#9660;</button>
                         <div class="dropdown-content">
                             @foreach ($komoditi as $komoditi)
                                 <a href="#" style="color: black;">{{ $komoditi->nama_komoditi }}</a>
                             @endforeach
                         </div>
-                    </div>
+                    </div> --}}
                 </li>
                 <li><a class="smoothscroll" href="#about" title="about">Tentang</a></li>
                 <li><a class="smoothscroll" href="#download" title="download">Informasi</a></li>
