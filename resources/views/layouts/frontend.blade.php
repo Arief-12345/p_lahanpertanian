@@ -201,8 +201,8 @@
                         </div>
                     </div> --}}
                 </li>
-                <li><a class="smoothscroll" href="#about" title="about">Tentang</a></li>
-                <li><a class="smoothscroll" href="#download" title="download">Informasi</a></li>
+                <li><a class="smoothscroll" href="#" title="">Tentang</a></li>
+                <li><a class="smoothscroll" href="#" title="">Informasi</a></li>
             </ul>
 
             {{-- <a href="{{ url('/login') }}" title="sign-up" class="button button-primary cta">Login</a> --}}

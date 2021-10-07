@@ -30,16 +30,17 @@ class LandingpageController extends Controller
         // $produksi = Produksi::all();
         $kecamatan = Kecamatan::all();
 
-        if ($request->komoditi != null && $request->tahun != null) {
+        if ($request->komoditi == null && $request->tahun == null) {
+            $produksi = Produksi::where('tahun', 2222)->get();
+            return view('landing_page.pemetaan_komoditi', compact('komoditi', 'produksi', 'kecamatan'));
+        } elseif ($request->komoditi != null && $request->tahun != null) {
             $produksi = Produksi::where('komoditi_id', $request->komoditi)->where('tahun', $request->tahun)->get();
-        } elseif ($request->komoditi == null && $request->tahun == null) {
-            $produksi = Produksi::all();
+            return view('landing_page.pemetaan_komoditi', compact('komoditi', 'produksi', 'kecamatan'));
         } else {
             $produksi = Produksi::all();
+            return view('landing_page.pemetaan_komoditi', compact('komoditi', 'produksi', 'kecamatan'));
         }
         
-
-        return view('landing_page.pemetaan_komoditi', compact('komoditi', 'produksi', 'kecamatan'));
     }
 
     public function grafik(Request $request)
@@ -87,7 +88,7 @@ class LandingpageController extends Controller
         if ($request->tahun != null) {
             $potensi = Potensilahanpertanian::where('tahun', $request->tahun)->get();
         }  else {
-            $potensi = Potensilahanpertanian::all();
+            $potensi = Potensilahanpertanian::where('tahun', 2222)->get();
         }
 
         return view('landing_page.pemetaan_potensi_lahan', compact('potensi', 'komoditi', 'kecamatan'));

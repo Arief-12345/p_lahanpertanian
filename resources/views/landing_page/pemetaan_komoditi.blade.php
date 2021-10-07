@@ -63,9 +63,11 @@
                 id: 'mapbox/dark-v10'
             });
 
+            
         @foreach ($produksi as $datas)
             var data{{ $datas->kecamatan->id }} = L.layerGroup();
         @endforeach
+        
         var kecamatan = L.layerGroup();
         var map = L.map('map', {
             center: [0.2466385230005252, 110.50176394336441],
