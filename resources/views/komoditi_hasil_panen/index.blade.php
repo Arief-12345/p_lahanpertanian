@@ -19,6 +19,7 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Nama Komoditi</th>
+                                    <th scope="col">Warna</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -27,6 +28,7 @@
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $datas->nama_komoditi }}</td>
+                                        <td style="background-color: {{ $datas->warna }}"></td>
                                         <td>
                                             <button class="btn btn-success btn-md" onclick="getdata({{ $datas->id }})"
                                                 data-toggle="modal" data-target="#edit">Edit</button>

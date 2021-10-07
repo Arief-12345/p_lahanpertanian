@@ -38,6 +38,7 @@ class KomoditihasilpanenController extends Controller
     {
         $this->validate($request, [
             'nama_komoditi' => 'required',
+            'warna' => 'required',
         ]);
 
         $tambah = Komoditihasilpanen::create($request->all());
@@ -77,6 +78,7 @@ class KomoditihasilpanenController extends Controller
     {
         $this->validate($request, [
             'nama_komoditi' => 'required',
+            'warna' => 'required',
         ]);
 
         $update = Komoditihasilpanen::find($request->id)->update($request->all());
