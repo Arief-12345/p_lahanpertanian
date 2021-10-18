@@ -175,7 +175,7 @@
     <header id="header" class="row">
 
         <div class="header-logo">
-            <a href="#">SIG LAHAN SANGGAU</a>
+            <a href="{{ url('/') }}">SIG LAHAN SANGGAU</a>
         </div>
 
         <nav id="header-nav-wrap">
