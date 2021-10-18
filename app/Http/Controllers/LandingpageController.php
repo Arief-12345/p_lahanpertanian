@@ -26,6 +26,7 @@ class LandingpageController extends Controller
 
     public function pemetaan_komoditi(Request $request)
     {
+    //    return $keyword = $request->tahun;
         $komoditi = Komoditihasilpanen::all();
         // $produksi = Produksi::all();
         $kecamatan = Kecamatan::all();
@@ -34,7 +35,8 @@ class LandingpageController extends Controller
             $produksi = Produksi::where('tahun', 2222)->get();
             return view('landing_page.pemetaan_komoditi', compact('komoditi', 'produksi', 'kecamatan'));
         } elseif ($request->komoditi != null && $request->tahun != null) {
-            $produksi = Produksi::where('komoditi_id', $request->komoditi)->where('tahun', $request->tahun)->get();
+            // $keyword = $request->tahun;
+            $produksi = Produksi::where('komoditi_id', $request->komoditi)->get();
             return view('landing_page.pemetaan_komoditi', compact('komoditi', 'produksi', 'kecamatan'));
         } else {
             $produksi = Produksi::all();

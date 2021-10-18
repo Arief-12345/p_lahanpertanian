@@ -6,7 +6,7 @@
         <form action="/pemetaan_potensi_lahan" method="get">
             {{ csrf_field() }}
             <div class="col-md-4">
-                <select name="tahun" id="tahun" class="form-control" value="{{ old('tahun') }}">
+                <select name="tahun" id="tahun" class="form-control">
                     <option value="">--Pilih Tahun--</option>
                     <option value="2018">2018</option>
                     <option value="2019">2019</option>
