@@ -84,7 +84,7 @@
                                             <td>{{ $kecamatannn }}</td>
                                             <td>{{ $tahunn }}</td>
                                             <td>{{ $komoditii }}</td>
-                                            <td>{{ $luas_penggunaan_lahan }}</td>
+                                            <td>{{ $luas_panen }}</td>
                                             <td>{{ $format_perhitungan }}</td>
                                         @else
 
