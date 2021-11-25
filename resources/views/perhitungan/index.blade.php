@@ -67,13 +67,13 @@
                             </form>
                         </div>
                         <div style="margin-top: 100px">
-                            <table class="table">
+                            <table class="table" id="datatable">
                                 <thead>
                                     <tr>
                                         <th scope="col">Nama Kecamatan</th>
                                         <th scope="col">Tahun</th>
                                         <th scope="col">Jenis Komoditi</th>
-                                        <th scope="col">Luas Penggunaan Lahan</th>
+                                        <th scope="col">Luas Panen</th>
                                         <th scope="col">Jumlah Produksi</th>
                                     </tr>
                                 </thead>
@@ -97,4 +97,16 @@
                 </div>
             </div>
         </div>
+    @endsection
+    @section('footer')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatables').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'pdf', 'print'
+                    ]
+                });
+            });
+        </script>
     @endsection
