@@ -20,10 +20,15 @@
  <script src="js/respond.min.js"></script>
  <![endif]-->
     <!-- DataTables -->
-    {{-- <link href={{ asset("assets/plugins/datatables/dataTables.bootstrap4.min.css") }} rel="stylesheet" type="text/css" />
-        <link href={{ asset("assets/plugins/datatables/buttons.bootstrap4.min.css") }} rel="stylesheet" type="text/css" />
-        <link href={{ asset("assets/plugins/datatables/responsive.bootstrap4.min.css") }} rel="stylesheet" type="text/css" /> --}}
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> --}}
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs/jqc-1.12.4/jszip-2.5.0/dt-1.11.3/af-2.3.7/b-2.0.1/b-colvis-2.0.1/b-html5-2.0.1/b-print-2.0.1/r-2.2.9/sc-2.0.5/sb-1.3.0/datatables.min.css" />
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css" /> --}}
+    {{-- <link href={{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.css') }} rel="stylesheet"
+        type="text/css" />
+    <link href={{ asset('assets/plugins/datatables/buttons.bootstrap4.min.css') }} rel="stylesheet" type="text/css" />
+    <link href={{ asset('assets/plugins/datatables/responsive.bootstrap4.min.css') }} rel="stylesheet"
+        type="text/css" /> --}}
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="sweetalert2.min.css">
     {{-- Toastr --}}
@@ -169,12 +174,16 @@
     <script src="{{ asset('assets/js/easypiechart.js') }}"></script>
     <script src="{{ asset('assets/js/easypiechart-data.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap-datepicker.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
     {{-- DataTable Baru --}}
-
+    {{-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script> --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs/jqc-1.12.4/jszip-2.5.0/dt-1.11.3/af-2.3.7/b-2.0.1/b-colvis-2.0.1/b-html5-2.0.1/b-print-2.0.1/r-2.2.9/sc-2.0.5/sb-1.3.0/datatables.min.js">
+    </script>
     {{-- Sweetalert2 --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="sweetalert2.all.min.js"></script>
@@ -184,23 +193,40 @@
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- Buttons examples -->
-    {{-- <script src={{ asset("assets/plugins/datatables/dataTables.buttons.min.js") }}></script>
-	<script src={{ asset("assets/plugins/datatables/buttons.bootstrap4.min.js") }}></script>
-	<script src={{ asset("assets/plugins/datatables/jszip.min.js") }}></script>
-	<script src={{ asset("assets/plugins/datatables/pdfmake.min.js") }}></script>
-	<script src={{ asset("assets/plugins/datatables/vfs_fonts.js") }}></script>
-	<script src={{ asset("assets/plugins/datatables/buttons.html5.min.js") }}></script>
-	<script src={{ asset("assets/plugins/datatables/buttons.print.min.js") }}></script>
-	<script src={{ asset("assets/plugins/datatables/buttons.colVis.min.js") }}></script> --}}
+    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs4-4.6.0/jqc-1.12.4/jszip-2.5.0/dt-1.11.3/e-2.0.5/af-2.3.7/b-2.0.1/b-colvis-2.0.1/b-html5-2.0.1/b-print-2.0.1/r-2.2.9/sc-2.0.5/sb-1.3.0/datatables.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js">
+    </script> --}}
+    {{-- <script src={{ asset('assets/plugins/datatables/dataTables.buttons.min.js') }}></script>
+    <script src={{ asset('assets/plugins/datatables/buttons.bootstrap4.min.js') }}></script>
+    <script src={{ asset('assets/plugins/datatables/jszip.min.js') }}></script>
+    <script src={{ asset('assets/plugins/datatables/pdfmake.min.js') }}></script>
+    <script src={{ asset('assets/plugins/datatables/vfs_fonts.js') }}></script>
+    <script src={{ asset('assets/plugins/datatables/buttons.html5.min.js') }}></script>
+    <script src={{ asset('assets/plugins/datatables/buttons.print.min.js') }}></script>
+    <script src={{ asset('assets/plugins/datatables/buttons.colVis.min.js') }}></script> --}}
     <!-- Responsive examples -->
-    {{-- <script src={{ asset("assets/plugins/datatables/dataTables.responsive.min.js") }}></script> --}}
-    {{-- <script src={{ asset("assets/plugins/datatables/responsive.bootstrap4.min.js") }}></script> --}}
+    {{-- <script src={{ asset('assets/plugins/datatables/dataTables.responsive.min.js') }}></script> --}}
+    {{-- <script src={{ asset('assets/plugins/datatables/responsive.bootstrap4.min.js') }}></script> --}}
     <script src={{ asset('assets/js/app.js') }}></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#datatable').DataTable();
+            $('#datatable').DataTable(@yield('dt'));
         });
     </script>
+    {{-- <script type="text/javascript">
+        $(document).ready(function() {
+            $('#datatable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'print'
+                ]
+            });
+        });
+    </script> --}}
     <script>
         @if (Session::has('sukses'))
             toastr.success("{{ Session::get('sukses') }}", "Selamat")

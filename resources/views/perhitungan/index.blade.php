@@ -98,15 +98,11 @@
             </div>
         </div>
     @endsection
-    @section('footer')
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#datatables').DataTable({
-                    dom: 'Bfrtip',
-                    buttons: [
-                        'pdf', 'print'
-                    ]
-                });
-            });
-        </script>
+    @section('dt')
+        {
+        dom: 'Bfrtip',
+        buttons: [
+        'print'
+        ]
+        }
     @endsection
