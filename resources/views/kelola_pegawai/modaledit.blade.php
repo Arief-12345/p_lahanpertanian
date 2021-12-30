@@ -9,7 +9,7 @@
                 <form action="{{ url('/kelola_pegawai/update') }}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" id="id_user" name="id_user" value="">
-                    <input type="hidden" class="form-control" id="url_getdata" name="url_getdata"
+                    <input type="hidden" class="form-control" id="url_getdataa" name="url_getdata"
                         value="{{ url('getdatapegawai/') }}" readonly>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">NIP</label>
@@ -73,7 +73,7 @@
 <script>
     function getdata(id) {
         console.log(id)
-        var url = $('#url_getdata').val() + '/' + id
+        var url = $('#url_getdataa').val() + '/' + id
         // var url = $('#url_getdataa').val() + '/' + id
         // var url = $('#url_getdata_hvps_v').val() + '/' + id
         console.log(url);

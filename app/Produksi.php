@@ -17,6 +17,6 @@ class Produksi extends Model
 
     public function komoditi()
     {
-        return $this->belongsTo(komoditihasilpanen::class);
+        return $this->belongsTo(Komoditihasilpanen::class);
     }
 }

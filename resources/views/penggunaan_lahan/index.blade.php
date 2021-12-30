@@ -30,7 +30,7 @@
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $datas->kecamatan->nama_kecamatan }}</td>
-                                        <td>{{ $datas->komoditi->nama_komoditi }}</td>
+                                        <td>{{ $datas->komoditi['nama_komoditi'] }}</td>
                                         <td>{{ $datas->tahun }}</td>
                                         <td>{{ $datas->luas_penggunaan_lahan . ' Hektar' }}</td>
                                         <td>
