@@ -14,4 +14,9 @@ class Komoditihasilpanen extends Model
     {
         return $this->hasOne(Produksi::class);
     }
+
+    public function penggunaanlahan()
+    {
+        return $this->hasOne(Penggunaanlahan::class);
+    }
 }

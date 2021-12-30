@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Penggunaanlahan;
 use App\Kecamatan;
+use App\Komoditihasilpanen;
 
 class PenggunaanlahanController extends Controller
 {
@@ -17,8 +18,9 @@ class PenggunaanlahanController extends Controller
     {
         $data = Penggunaanlahan::all();
         $kecamatan = Kecamatan::all();
+        $komoditi = Komoditihasilpanen::all();
 
-        return view('penggunaan_lahan.index', compact('data', 'kecamatan'));
+        return view('penggunaan_lahan.index', compact('data', 'kecamatan', 'komoditi'));
     }
 
     /**
@@ -42,6 +44,8 @@ class PenggunaanlahanController extends Controller
         $this->validate($request, [
             'kecamatan_id' => 'required',
             'luas_penggunaan_lahan' => 'required',
+            'komoditi_id' => 'required',
+            'tahun' => 'required',
         ]);
 
         $tambah = Penggunaanlahan::create($request->all());
@@ -82,6 +86,8 @@ class PenggunaanlahanController extends Controller
         $this->validate($request, [
             'kecamatan_id' => 'required',
             'luas_penggunaan_lahan' => 'required',
+            'komoditi_id' => 'required',
+            'tahun' => 'required',
         ]);
 
         $update = Penggunaanlahan::find($request->id)->update($request->all());

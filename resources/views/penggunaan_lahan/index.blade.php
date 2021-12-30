@@ -9,35 +9,42 @@
                 </div>
                 <div class="panel-body">
                     <div class="row" style="margin-left: 10px; margin-top: 10px">
-                        <button class="btn btn-primary btn-md"  data-toggle="modal" data-target="#tambah"><i class="fa fa-user-plus"></i> Tambah</button> <br>
+                        <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#tambah"><i
+                                class="fa fa-user-plus"></i> Tambah</button> <br>
                     </div>
-                @include('penggunaan_lahan/modaltambah')
-                <div class="row" style="margin-top: 20px; margin-left: 10px; margin-right: 10px">
-                    <table class="table" id="datatable">
-                        <thead>
-                          <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama Kecamatan</th>
-                            <th scope="col">Luas Penggunaan Lahan</th>
-                            <th scope="col">Aksi</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data as $datas)
-                            <tr>
-                                <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $datas->kecamatan->nama_kecamatan }}</td>
-                                <td>{{ $datas->luas_penggunaan_lahan . " Hektar" }}</td>
-                                <td>
-                                    <button class="btn btn-success btn-md" onclick="getdata({{$datas->id}})" data-toggle="modal" data-target="#edit">Edit</button>
-                                    <a href="#" class="btn btn-danger btn-md hapus" id="{{ $datas->id }}">Hapus</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                @include('penggunaan_lahan/modaledit')
-                        </tbody>
-                      </table>
-                </div>
+                    @include('penggunaan_lahan/modaltambah')
+                    <div class="row" style="margin-top: 20px; margin-left: 10px; margin-right: 10px">
+                        <table class="table" id="datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama Kecamatan</th>
+                                    <th scope="col">Nama Komoditi</th>
+                                    <th scope="col">Tahun</th>
+                                    <th scope="col">Luas Penggunaan Lahan</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data as $datas)
+                                    <tr>
+                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>{{ $datas->kecamatan->nama_kecamatan }}</td>
+                                        <td>{{ $datas->komoditi->nama_komoditi }}</td>
+                                        <td>{{ $datas->tahun }}</td>
+                                        <td>{{ $datas->luas_penggunaan_lahan . ' Hektar' }}</td>
+                                        <td>
+                                            <button class="btn btn-success btn-md" onclick="getdata({{ $datas->id }})"
+                                                data-toggle="modal" data-target="#edit">Edit</button>
+                                            <a href="#" class="btn btn-danger btn-md hapus"
+                                                id="{{ $datas->id }}">Hapus</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                @include('penggunaan_lahan/modaledit')
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,8 +57,8 @@
     </script>
 @endsection
 @section('footer')
-    
-<script>
+
+    <script>
         $('.hapus').click(function() {
             var Id = $(this).attr('id');
             var Jenis = $(this).attr('jenis');
