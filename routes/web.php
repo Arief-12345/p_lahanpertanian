@@ -20,12 +20,6 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function () {
     Route::get('/kelola_pegawai/hapus/{id}', 'KelolapegawaiController@destroy');
     Route::get('/getdatapegawai/{id}', 'KelolapegawaiController@getdatapegawai')->name('get.data.pengguna');
 
-    Route::get('/kelola_kepalakantor', 'KelolakepalakantorController@index');
-    Route::post('/kelola_kepalakantor/input', 'KelolakepalakantorController@store');
-    Route::post('/kelola_kepalakantor/update', 'KelolakepalakantorController@update');
-    Route::get('/kelola_kepalakantor/hapus/{id}', 'KelolakepalakantorController@destroy');
-    Route::get('/getdatakepalakantor/{id}', 'KelolakepalakantorController@getdatakepalakantor')->name('get.data.pengguna');
-
     Route::get('/kelola_gapoktani', 'GapoktaniController@index');
     Route::post('/kelola_gapoktani/input', 'GapoktaniController@store');
     Route::post('/kelola_gapoktani/update', 'GapoktaniController@update');
